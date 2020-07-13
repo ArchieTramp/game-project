@@ -2,6 +2,9 @@ package ru.innopolis.games.gameDice;
 
 
 import ru.innopolis.games.Game;
+
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
 import java.security.SecureRandom;
 import java.util.Random;
 
@@ -14,7 +17,8 @@ public class GameDice extends Game {
 
     private long aLong = System.currentTimeMillis();
     private Random random1 = new Random();
-    private SecureRandom random2 = new SecureRandom();
+    private SecureRandom random2 = SecureRandom.getInstance("SHA1PRNG","SUN");
+
 
     public int throwDice1(){
         int resulDice1 = random1.nextInt(6)+1;
@@ -27,7 +31,7 @@ public class GameDice extends Game {
         return resulDice2;
     }
 
-    public GameDice() {
+    public GameDice() throws NoSuchProviderException, NoSuchAlgorithmException {
 
     }
 
