@@ -1,7 +1,9 @@
-package ru.innopolis.games;
+package ru.innopolis;
 
+import ru.innopolis.games.Game;
+import ru.innopolis.games.Play;
 import ru.innopolis.games.gameDice.GameDice;
-import ru.innopolis.games.player.Player;
+import ru.innopolis.player.Player;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;

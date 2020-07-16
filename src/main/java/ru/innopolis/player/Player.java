@@ -1,4 +1,4 @@
-package ru.innopolis.games.player;
+package ru.innopolis.player;
 
 import ru.innopolis.games.Game;
 import ru.innopolis.games.Play;
