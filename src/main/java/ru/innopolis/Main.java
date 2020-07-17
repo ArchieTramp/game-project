@@ -16,11 +16,10 @@ import java.security.NoSuchProviderException;
 public class Main {
     public static void main(String[] args) throws NoSuchProviderException, NoSuchAlgorithmException {
         Game gameDice = new GameDice();
-        Player player = new Player(1, "Ivan", 1000,1000, 0);
-        Play playeGame = new Player(1, "Ivan", 1000,1000, 0);
+        Player player = new Player(1, "Ivan", 1000, 1000, 0);
 
         for (int i = 0; i < 1000; i++) {
-            gameDice.executeGame();
+            player.play(gameDice);
         }
 
     }
