@@ -13,7 +13,7 @@
     <groupId>ru.innopolis.game</groupId>
     <artifactId>game-project</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
 
 
     <dependencies>
@@ -58,6 +58,7 @@
     </dependencies>
 
     <build>
+        <finalName>WildWest</finalName>
         <plugins>
             <!-- Сборка проекта в jar с быстрым запуском java -jar -->
             <plugin>
@@ -72,6 +73,14 @@
 <!--                    <target>6</target>-->
 <!--                </configuration>-->
 <!--            </plugin>-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.2.3</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 </project>
