@@ -40,6 +40,7 @@ public class Player implements Play {
 
     }
 
+
     public Integer getUserId() {
         return userId;
     }
