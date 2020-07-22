@@ -9,7 +9,7 @@
     <div class="form-style-2-heading">
         Зарегистрируйтесь!
     </div>
-    <form method="post" action="/signUp">
+    <form method="post" action="/signup">
         <label for="login">Логин
             <input class="input-field" type="text" id="login" name="login">
         </label>

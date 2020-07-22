@@ -19,7 +19,7 @@ import javax.sql.DataSource;
 /**
  *
  *
- * @author Prokofiev Andrei
+ * @author
  */
 @Configuration
 @ComponentScan("ru.innopolis")
@@ -29,8 +29,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserDetailsService userDetailsService;
 
-//    @Autowired
-//    private PasswordEncoder passwordEncoder;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Qualifier("dataSource")
     @Autowired
@@ -41,7 +41,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                     .antMatchers("/users/**").hasAuthority("ADMIN")
-                    .antMatchers("/signUp/**").permitAll()
+                    .antMatchers("/signup/**").permitAll()
                     .antMatchers("/").authenticated()
                     .antMatchers("/css/**").permitAll()
                     .anyRequest().authenticated()
@@ -64,8 +64,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         tokenRepository.setDataSource(dataSource);
         return tokenRepository;
     }
-//    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
-//    }
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
+    }
 }

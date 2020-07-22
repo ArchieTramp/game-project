@@ -2,8 +2,8 @@ package ru.innopolis;
 
 import ru.innopolis.games.Game;
 import ru.innopolis.games.gameDice.GameDice;
+import ru.innopolis.models.Player;
 import ru.innopolis.models.User;
-import ru.innopolis.player.Player;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
@@ -13,22 +13,21 @@ import java.security.NoSuchProviderException;
  *
  * @author "Andrei Prokofiev"
  */
+
 public class Main {
     public static void main(String[] args) throws NoSuchProviderException, NoSuchAlgorithmException {
         Game gameDice = new GameDice();
-        Player player = new Player(1, "Ivan", 1000, 1000, 0, 0, 0, 0, 0);
+        User user = User.builder()
+                .id(0L)
+                .firstName("A")
+                .build();
 
+        Player player = Player.builder()
+                .id(user.getId())
+                .build();
         for (int i = 0; i < 1000; i++) {
             player.play(gameDice);
         }
-
-
-
-
-
-
-
-
 
 
     }

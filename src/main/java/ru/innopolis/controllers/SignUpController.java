@@ -22,7 +22,7 @@ public class SignUpController {
         return "signup";
     }
 
-    @PostMapping("/signUp")
+    @PostMapping("/signup")
     public String signUp(UserForm userForm) {
         service.signUp(userForm);
         return "redirect:/login";

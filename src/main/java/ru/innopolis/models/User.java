@@ -1,10 +1,9 @@
 package ru.innopolis.models;
 
 import lombok.*;
-import ru.innopolis.repositories.UsersRepository;
+import ru.innopolis.forms.UserForm;
 
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.*;
 
 /**
  * User pojo
@@ -17,57 +16,31 @@ import javax.persistence.Enumerated;
 
 
 @Data
+@NoArgsConstructor
 @AllArgsConstructor
+@Builder
+@Entity
+@Table(name = "users")
 public class User {
-    public Integer userId;
-    private String nickName;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String firstName;
+    private String lastName;
     private String login;
     private String hashPassword;
 
-    //    @Enumerated(value = EnumType.STRING)
+    @Enumerated(value = EnumType.STRING)
     private Role role;
-    //    @Enumerated(value = EnumType.STRING)
+    @Enumerated(value = EnumType.STRING)
     private State state;
 
+    public static User from(UserForm form) {
+        return User.builder()
+                .firstName(form.getFirstName())
+                .lastName(form.getLastName())
+                .build();
+    }
 
-//    public User(Integer userId, String nickName, String login, String hashPassword) {
-//        this.userId = userId;
-//        this.nickName = nickName;
-//        this.login = login;
-//        this.hashPassword = hashPassword;
-//    }
-
-
-
-
-
-
-//    public Integer getUserId() {
-//        return userId;
-//    }
-//
-//    public void setUserId(Integer userId) {
-//        this.userId = userId;
-//    }
-//
-//    public String getNickName() {
-//        return nickName;
-//    }
-//
-//    public void setNickName(String nickName) {
-//        this.nickName = nickName;
-//    }
-//
-//    public String getLogin() {
-//        return login;
-//    }
-//
-//    public void setLogin(String login) {
-//        this.login = login;
-//    }
-//
-//
-//    public void setHashPassword(String hashPassword) {
-//        this.hashPassword = hashPassword;
-//    }
 }
