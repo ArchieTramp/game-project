@@ -1,18 +1,18 @@
-package ru.innopolis.games.gameDice;
-
-
-import ru.innopolis.games.Game;
+package ru.innopolis.services.games.gameDice;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import java.security.SecureRandom;
 import java.util.Random;
+import ru.innopolis.services.games.Game;
+
 
 /**
  * PlayDice
  *
  * @author "Andrei Prokofiev"
  */
+
 public class GameDice extends Game {
 
     private long aLong = System.currentTimeMillis();

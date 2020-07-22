@@ -20,7 +20,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "users")
+@Table(name = "fix_user")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

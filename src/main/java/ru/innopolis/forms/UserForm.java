@@ -1,6 +1,5 @@
 package ru.innopolis.forms;
 
-
 import lombok.Data;
 
 /**
@@ -11,7 +10,7 @@ import lombok.Data;
 public class UserForm {
     private String firstName;
     private String lastName;
-    private String nickName;
+    private String login;
     private String password;
 
 }

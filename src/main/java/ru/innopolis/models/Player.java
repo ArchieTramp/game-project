@@ -4,11 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.innopolis.games.Game;
-import ru.innopolis.games.Play;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import ru.innopolis.services.games.Play;
+import ru.innopolis.services.games.Game;
 
 /**
  * Player pojo
@@ -23,7 +21,7 @@ import javax.persistence.Table;
 @Builder
 @Data
 //@Entity
-@Table(name = "players")
+//@Table(name = "players")
 public class Player implements Play {
     private Long id;
     private String nickName;

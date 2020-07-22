@@ -1,10 +1,11 @@
-package ru.innopolis.games;
+package ru.innopolis.services.games;
 
 /**
  * Game
  *
  * @author "Andrei Prokofiev"
  */
+
 public abstract class Game{
 
     public abstract void executeGame();

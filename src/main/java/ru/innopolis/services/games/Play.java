@@ -1,4 +1,4 @@
-package ru.innopolis.games;
+package ru.innopolis.services.games;
 
 /**
  * PlayDice
@@ -7,5 +7,4 @@ package ru.innopolis.games;
  */
 public interface Play {
     public void play(Game game);
-//    public int playAgain(Game game);
 }

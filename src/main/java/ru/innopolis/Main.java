@@ -1,7 +1,7 @@
 package ru.innopolis;
 
-import ru.innopolis.games.Game;
-import ru.innopolis.games.gameDice.GameDice;
+import ru.innopolis.services.games.Game;
+import ru.innopolis.services.games.gameDice.GameDice;
 import ru.innopolis.models.Player;
 import ru.innopolis.models.User;
 
