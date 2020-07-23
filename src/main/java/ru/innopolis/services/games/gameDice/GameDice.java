@@ -4,6 +4,8 @@ import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import java.security.SecureRandom;
 import java.util.Random;
+
+import org.springframework.stereotype.Service;
 import ru.innopolis.services.games.Game;
 
 
@@ -13,6 +15,8 @@ import ru.innopolis.services.games.Game;
  * @author "Andrei Prokofiev"
  */
 
+
+@Service
 public class GameDice extends Game {
 
     private long aLong = System.currentTimeMillis();

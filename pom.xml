@@ -17,7 +17,9 @@
     <groupId>ru.innopolis.game</groupId>
     <artifactId>game-project</artifactId>
     <version>1.0-SNAPSHOT</version>
-<!--    <packaging>jar</packaging>-->
+    <packaging>war</packaging>
+
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -71,6 +73,7 @@
 
 
     <build>
+        <finalName>WildWest</finalName>
         <plugins>
             <!-- Сборка проекта в jar с быстрым запуском java -jar -->
             <plugin>

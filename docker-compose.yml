@@ -1,0 +1,35 @@
+version: "3.7"
+
+services:
+  tomcat:
+    build:
+      context: .
+      network: host
+    networks:
+      - wild_west_network
+    ports:
+      - 8080:8080
+  postgres:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: qwerty
+      POSTGRES_DB: wildwest
+    networks:
+      - wild_west_network
+    ports:
+      - 5435:5432
+  adminer:
+    image: adminer
+    restart: always
+    depends_on:
+      - postgres
+    ports:
+      - 9990:8080
+    networks:
+      - wild_west_network
+networks:
+  wild_west_network:
+    driver: bridge
+    external: true
