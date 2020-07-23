@@ -11,10 +11,6 @@ import javax.persistence.*;
  * @author Artyr Gilyazov
  */
 
-
-//@AllArgsConstructor(access = AccessLevel.PRIVATE)
-
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -26,6 +22,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private String firstName;
     private String lastName;
     private String login;

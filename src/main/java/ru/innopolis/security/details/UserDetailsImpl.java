@@ -12,6 +12,7 @@ import java.util.Collections;
 /**
  *
  */
+
 public class UserDetailsImpl implements UserDetails {
 
     private User user;

@@ -5,6 +5,9 @@
     <link href="/css/bootstrap.min.css" rel="stylesheet"/>
 </head>
 <body>
+<#if error??>
+    <div class="alert alert-danger" role="alert">Поля не могут быть пустыми</div>
+</#if>
 <div class="form-style-2">
     <div class="form-style-2-heading">
         Зарегистрируйтесь!
@@ -28,8 +31,11 @@
         <br>
         <label for="remember-me">
             <input type="checkbox" id="remember-me" name="remember-me">Запомнить меня</label>
-        <input type="submit" value="SignUp">
+        <input type="submit" value="Зарегистрироваться">
         <br>
+    </form>
+    <form method="get" action="/login">
+        <input type="submit" value="Авторизоваться">
     </form>
 </div>
 </body>

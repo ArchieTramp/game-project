@@ -21,6 +21,7 @@ import javax.sql.DataSource;
  *
  * @author
  */
+
 @Configuration
 @ComponentScan("ru.innopolis")
 @EnableWebSecurity

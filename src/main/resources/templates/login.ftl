@@ -12,7 +12,7 @@
 </#if>
 <div class="form-style-2">
     <div class="form-style-2-heading">
-        Please Login!
+        Пожалуйста зарегистрируйтесь!
     </div>
     <form method="post" action="/login">
         <label for="login">Логин
@@ -25,8 +25,12 @@
         <br>
         <label for="remember-me">
             <input type="checkbox" id="remember-me" name="remember-me">Запомнить меня</label>
-        <input type="submit" value="Login">
+        <input type="submit" value="Войти">
     </form>
+    <form method="get" action="/signup">
+        <input type="submit" value="Регистрация">
+    </form>
+
 </div>
 </body>
 </html>

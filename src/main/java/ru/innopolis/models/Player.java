@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 import ru.innopolis.services.games.Play;
 import ru.innopolis.services.games.Game;
 
+import javax.persistence.*;
+
 /**
  * Player pojo
  *
@@ -20,9 +22,10 @@ import ru.innopolis.services.games.Game;
 @NoArgsConstructor
 @Builder
 @Data
-//@Entity
-//@Table(name = "players")
+@Entity
+@Table(name = "players")
 public class Player implements Play {
+    @Id
     private Long id;
     private String nickName;
     private Integer HP; //очки здоровья//

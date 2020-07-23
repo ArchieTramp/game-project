@@ -20,13 +20,17 @@ import javax.persistence.*;
 //@Entity
 //@Table(name = "admins")
 public class Admin {
-//
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String position;
     private String login;
     private String password;
     private String nickName;
+    @Enumerated(value = EnumType.STRING)
+    private Role role;
+    @Enumerated(value = EnumType.STRING)
+    private State state;
 
 }

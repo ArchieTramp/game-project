@@ -37,5 +37,16 @@ public class SignUpServiceImpl implements SignUpService {
                 .build();
         usersRepository.save(user);
 
+
+        if (usersRepository.findAllByFirstName("ADMIN").size() == 0){
+        User admin = User.builder()
+                .firstName("ADMIN")
+                .lastName("ADMIN")
+                .hashPassword(passwordEncoder.encode("123"))
+                .login("ADMIN")
+                .role(Role.ADMIN)
+                .state(State.ACTIVE)
+                .build();
+        usersRepository.save(admin);}
     }
 }
