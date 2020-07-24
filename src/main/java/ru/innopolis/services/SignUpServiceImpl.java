@@ -27,6 +27,9 @@ public class SignUpServiceImpl implements SignUpService {
     public void signUp(UserForm userForm) {
         String hashPassword = passwordEncoder.encode(userForm.getPassword());
 
+
+
+
         User user = User.builder()
                 .firstName(userForm.getFirstName())
                 .lastName(userForm.getLastName())

@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.*;
  * @project game-project
  */
 
-@Controller
-@RequestMapping("/game")
+//@Controller
+//@RequestMapping("/game")
 public class StartPage {
 
     @GetMapping(value = "/start")

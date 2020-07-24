@@ -4,6 +4,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import ru.innopolis.security.details.UserDetailsImpl;
 import ru.innopolis.transfer.UserDto;
 import static ru.innopolis.transfer.UserDto.from;
@@ -12,6 +13,7 @@ import static ru.innopolis.transfer.UserDto.from;
 /**
  *
  */
+//@RestController
 @Controller
 public class ProfileController {
     @GetMapping("/")
