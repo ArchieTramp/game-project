@@ -35,6 +35,7 @@ public class Player implements Play {
     private Integer charisma; //общение//
     private Integer intelligence; //знание//
     private Integer luck; //удача//
+    private Integer gold; //бабки//
 
     @Override
     public void play(Game game) {
