@@ -26,6 +26,7 @@ import javax.persistence.*;
 @Table(name = "players")
 public class Player implements Play {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nickName;
     private Integer HP; //очки здоровья//
@@ -36,15 +37,13 @@ public class Player implements Play {
     private Integer intelligence; //знание//
     private Integer luck; //удача//
     private Integer gold; //бабки//
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    User user;
 
     @Override
     public void play(Game game) {
         game.executeGame();
     }
-
-//    @Override
-//    public int playAgain(Game game) {
-//        return 0;
-//    }
 
 }
