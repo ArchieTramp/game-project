@@ -27,7 +27,7 @@ SignUpController {
     }
 
     @PostMapping("/signup")
-    public String signUp(UserForm userForm, HttpServletRequest request, ModelMap model) {
+    public String signUp(UserForm userForm) {
         service.signUp(userForm);
         return "redirect:/login";
     }
