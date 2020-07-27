@@ -32,6 +32,9 @@
             <#if message??>
                 <div class="alert alert-danger" role="alert">${message}</div>
             </#if>
+            <#if messageFirstName??>
+                <div class="alert alert-danger" role="alert">${messageFirstName}</div>
+            </#if>
         </label>
         <br>
         <label for="last-name">Фамилия

@@ -39,10 +39,18 @@ SignUpController {
         if (bindingResult.hasErrors()) {
             String message = "";
             List<ObjectError> allErrors = bindingResult.getAllErrors();
+
             for (ObjectError error : allErrors) {
-                message += error.getDefaultMessage();
+                message = error.getDefaultMessage();
+                System.out.println(message);
+                if (message.contains("Имя должно начинаться с большой буквы")) {
+                    model.addAttribute("messageFirstName", message);
+                }
+                if (message.contains("Поле не может быть пустым")) {
+                    model.addAttribute("message", message);
+                }
             }
-            model.addAttribute("message", "Поле не может быть пустым");
+//            model.addAttribute("message", "Поле не может быть пустым");
 
             return "signup";
         } else {

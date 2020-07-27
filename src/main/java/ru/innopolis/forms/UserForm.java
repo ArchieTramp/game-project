@@ -13,18 +13,18 @@ import javax.validation.constraints.Pattern;
 @Data
 public class UserForm {
 
-    @Pattern(message = "Bad formed person firstName: ${validatedValue}",
+    @Pattern(message = "Имя должно начинаться с большой буквы: ${validatedValue}",
             regexp = "^[A-Z][a-z]*(\\s(([a-z]{1,3})|(([a-z]+\\')?[A-Z][a-z]*)))*$")
-    @NotBlank(message = "FirstName should not be empty")
+    @NotBlank(message = "Поле не может быть пустым")
     private String firstName;
 
-    @NotBlank(message = "LastName should not be empty")
+    @NotBlank(message = "Поле не может быть пустым")
     private String lastName;
 
-    @NotBlank(message = "Login should not be empty")
+    @NotBlank(message = "Поле не может быть пустым")
     private String login;
 
-    @NotBlank(message = "Password should not be empty")
+    @NotBlank(message = "Поле не может быть пустым")
     private String password;
 
 }
