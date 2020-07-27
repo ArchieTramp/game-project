@@ -36,7 +36,7 @@ public class Player implements Play {
     private Integer charisma; //общение//
     private Integer intelligence; //знание//
     private Integer luck; //удача//
-
+    private Integer gold; //бабки//
     @ManyToOne
     @JoinColumn(name = "user_id")
     User user;
