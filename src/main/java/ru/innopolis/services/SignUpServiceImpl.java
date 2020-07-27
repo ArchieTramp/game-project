@@ -25,6 +25,11 @@ public class SignUpServiceImpl implements SignUpService {
 
     @Override
     public void signUp(UserForm userForm) {
+//        if (usersRepository.findOneByLogin(userForm.getLogin()) == null) {
+//            throw new IllegalArgumentException();
+//        } else {
+//
+//        }
         String hashPassword = passwordEncoder.encode(userForm.getPassword());
         User user = User.builder()
                 .firstName(userForm.getFirstName())
@@ -35,17 +40,16 @@ public class SignUpServiceImpl implements SignUpService {
                 .state(State.ACTIVE)
                 .build();
         usersRepository.save(user);
-
-
-        if (usersRepository.findAllByFirstName("ADMIN").size() == 0){
-        User admin = User.builder()
-                .firstName("ADMIN")
-                .lastName("ADMIN")
-                .hashPassword(passwordEncoder.encode("123"))
-                .login("ADMIN")
-                .role(Role.ADMIN)
-                .state(State.ACTIVE)
-                .build();
-        usersRepository.save(admin);}
+        if (usersRepository.findAllByFirstName("ADMIN").size() == 0) {
+            User admin = User.builder()
+                    .firstName("ADMIN")
+                    .lastName("ADMIN")
+                    .hashPassword(passwordEncoder.encode("123"))
+                    .login("ADMIN")
+                    .role(Role.ADMIN)
+                    .state(State.ACTIVE)
+                    .build();
+            usersRepository.save(admin);
+        }
     }
 }

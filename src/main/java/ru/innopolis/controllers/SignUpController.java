@@ -1,13 +1,19 @@
 package ru.innopolis.controllers;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import ru.innopolis.forms.UserForm;
 import ru.innopolis.services.SignUpService;
 
-import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
+import java.util.List;
 
 
 /**
@@ -27,8 +33,27 @@ SignUpController {
     }
 
     @PostMapping("/signup")
-    public String signUp(UserForm userForm) {
-        service.signUp(userForm);
-        return "redirect:/login";
+    public String signUp(@Valid UserForm userForm, BindingResult bindingResult, ModelMap model) {
+
+        bindingResult.getTarget();
+        if (bindingResult.hasErrors()) {
+            String message = "";
+            List<ObjectError> allErrors = bindingResult.getAllErrors();
+            for (ObjectError error : allErrors) {
+                message += error.getDefaultMessage();
+            }
+            model.addAttribute("message", "Поле не может быть пустым");
+
+            return "signup";
+        } else {
+            try {
+                service.signUp(userForm);
+            } catch (DataIntegrityViolationException e){
+                model.addAttribute("messageLogin", "Лoгин занят. Введите другое значение.");
+                return "signup";
+            }
+            return "redirect:/login";
+        }
+
     }
 }

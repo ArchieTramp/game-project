@@ -9,13 +9,12 @@ import org.springframework.web.bind.annotation.*;
  * @project game-project
  */
 
-//@Controller
-//@RequestMapping("/game")
+@Controller
 public class StartPage {
 
     @GetMapping(value = "/start")
-    public @ResponseBody
-    String createUser() {
-        return "Hello";
+    String getStartPage() {
+
+        return "index";
     }
 }
