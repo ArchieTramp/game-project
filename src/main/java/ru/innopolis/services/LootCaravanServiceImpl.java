@@ -9,10 +9,10 @@ import java.util.Random;
 
 public class LootCaravanServiceImpl implements LootCaravanService {
 
-    @Autowired
+//    @Autowired
     private PlayersRepository playersRepository;
 
-    @Override
+//    @Override
     public void lootCaravan(PlayerForm playerform) {
         Random randomLoot = new Random();
 
@@ -22,7 +22,7 @@ public class LootCaravanServiceImpl implements LootCaravanService {
                 .level(playerform.getLevel())
                 .gold(playerform.getGold())
                 .build();
-        playersRepository.save(player);
+//        playersRepository.save(player);
 
 
         /*запрос из бд значений*/
