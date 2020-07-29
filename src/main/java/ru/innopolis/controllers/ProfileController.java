@@ -13,7 +13,6 @@ import static ru.innopolis.transfer.UserDto.from;
 /**
  *
  */
-//@RestController
 @Controller
 public class ProfileController {
     @GetMapping("/")

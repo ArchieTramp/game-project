@@ -12,7 +12,6 @@ import ru.innopolis.repositories.UsersRepository;
  *
  */
 @Controller
-//@RestController
 public class UsersController {
 
     @Autowired

@@ -35,7 +35,6 @@ SignUpController {
     @PostMapping("/signup")
     public String signUp(@Valid UserForm userForm, BindingResult bindingResult, ModelMap model) {
 
-        bindingResult.getTarget();
         if (bindingResult.hasErrors()) {
             String message = "";
             List<ObjectError> allErrors = bindingResult.getAllErrors();
