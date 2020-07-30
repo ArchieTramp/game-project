@@ -1,2 +1,4 @@
-FROM tomcat:9-jdk8
-COPY target/WildWest.war /usr/local/tomcat/webapps/ROOT.war
+FROM java:alpine
+EXPOSE 8080
+COPY target/WildWest.jar .
+CMD java -jar WildWest.jar
