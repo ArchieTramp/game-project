@@ -17,11 +17,11 @@ public class LootCaravanServiceImpl implements LootCaravanService {
         Random randomLoot = new Random();
 
 
-        Player player = Player.builder()
-                .MP(playerform.getMP())
-                .level(playerform.getLevel())
-                .gold(playerform.getGold())
-                .build();
+//        Player player = Player.builder()
+//                .MP(playerform.getMP())
+//                .level(playerform.getLevel())
+//                .gold(playerform.getGold())
+//                .build();
 //        playersRepository.save(player);
 
 

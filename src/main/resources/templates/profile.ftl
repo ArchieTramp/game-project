@@ -18,6 +18,9 @@
             <#if message??>
                 <div class="alert alert-danger" role="alert">${message}</div>
             </#if>
+            <#if messageNickName??>
+                <div class="alert alert-danger" role="alert">${messageNickName}</div>
+            </#if>
         </label>
         <br>
         <label for="remember-me">

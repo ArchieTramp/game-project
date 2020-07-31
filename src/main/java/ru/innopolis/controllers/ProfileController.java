@@ -56,10 +56,8 @@ public class ProfileController {
         if (bindingResult.hasErrors()) {
             String message = "";
             List<ObjectError> allErrors = bindingResult.getAllErrors();
-
             for (ObjectError error : allErrors) {
                 message = error.getDefaultMessage();
-                System.out.println(message);
                 if (message.contains("Поле не может быть пустым")) {
                     model.addAttribute("message", message);
                 }
@@ -69,7 +67,7 @@ public class ProfileController {
             try {
                 service.signUp(playerForm);
             } catch (DataIntegrityViolationException e) {
-                model.addAttribute("messageLogin", "NickName занят. Введите другое значение.");
+                model.addAttribute("messageNickName", "NickName занят. Введите другое значение.");
                 return "profile";
             }
             return "profile";

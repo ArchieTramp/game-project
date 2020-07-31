@@ -41,7 +41,6 @@ SignUpController {
 
             for (ObjectError error : allErrors) {
                 message = error.getDefaultMessage();
-                System.out.println(message);
                 if (message.contains("Имя должно начинаться с большой буквы")) {
                     model.addAttribute("messageFirstName", message);
                 }
