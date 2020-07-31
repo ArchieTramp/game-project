@@ -4,9 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import ru.innopolis.services.games.Play;
 import ru.innopolis.services.games.Game;
+import ru.innopolis.services.games.Play;
 
 import javax.persistence.*;
 
@@ -18,15 +17,17 @@ import javax.persistence.*;
  * <p>
  * добавил навыки
  */
+
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Data
 @Entity
-@Table(name = "players")
+@Table(name = "players", uniqueConstraints = @UniqueConstraint(columnNames = {"nickName"}))
+//
 public class Player implements Play {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nickName;
     private Integer HP; //очки здоровья//
@@ -43,7 +44,6 @@ public class Player implements Play {
 
     @Override
     public void play(Game game) {
-        game.executeGame();
+         game.executeGame();
     }
-
 }

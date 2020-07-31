@@ -2,7 +2,10 @@ package ru.innopolis.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import ru.innopolis.models.Player;
+import ru.innopolis.models.User;
 
+import java.util.List;
+import java.util.Optional;
 
 
 /**
@@ -10,6 +13,7 @@ import ru.innopolis.models.Player;
  */
 
 public interface PlayersRepository extends JpaRepository<Player, Long> {
-
+    List<Player> findAllById(Integer user_id);
+    Player findByNickName(String nickName);
 
 }
