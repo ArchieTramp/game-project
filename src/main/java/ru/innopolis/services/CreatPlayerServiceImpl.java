@@ -14,7 +14,7 @@ import ru.innopolis.repositories.UsersRepository;
  */
 
 @Service
-public class CreatPlayerServiceImpl implements CreatPlayerService{
+public class CreatPlayerServiceImpl implements CreatPlayerService {
     @Autowired
     private PlayersRepository playersRepository;
 
@@ -22,14 +22,15 @@ public class CreatPlayerServiceImpl implements CreatPlayerService{
     public void signUp(PlayerForm playerForm) {
         Player player = Player.builder()
                 .nickName(playerForm.getNickName())
-                .HP(100)
+                .HP(125)
                 .MP(100)
                 .level(1)
-                .strength(100)
-                .charisma(100)
-                .intelligence(100)
-                .luck(100)
-                .gold(100)
+                .experience(0)
+                .strength(1)
+                .charisma(1)
+                .intelligence(1)
+                .luck(1)
+                .gold(10)
                 .build();
         playersRepository.save(player);
 
