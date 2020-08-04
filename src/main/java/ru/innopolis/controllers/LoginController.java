@@ -15,10 +15,8 @@ import javax.servlet.http.HttpServletRequest;
  *
  */
 
-//@RestController
-//@RequestMapping("/login")
+
 @Controller
-//@ResponseBody
 public class LoginController {
 
     @GetMapping(value = "/login")

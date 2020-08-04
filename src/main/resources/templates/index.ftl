@@ -1,4 +1,5 @@
 <#ftl encoding='UTF-8'>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -58,13 +59,13 @@
         <div class="action-window">
             <h2 class="action-title">Действия</h2>
             <ul class="action-items">
-                <li class="action-item"><a href="#">Ограбить караван</a></li>
-                <li class="action-item"><a href="#">Ограбить игрока</a></li>
-                <li class="action-item"><a href="#">Вызвать на дуэль</a></li>
-                <li class="action-item"><a href="#">Отдохнуть</a></li>
-                <li class="action-item"><a href="#">Нанять бойца</a></li>
-                <li class="action-item"><a href="#">Зайти в Saloon</a></li>
-                <li class="action-item"><a href="#">Повысить уровень</a></li>
+                <li class="action-item" data-eventMessage="aggressive"><a href="#" data-eventMessage="aggressive">Ограбить караван</a></li>
+                <li class="action-item" data-eventMessage="aggressive"><a href="#" data-eventMessage="aggressive">Ограбить игрока</a></li>
+                <li class="action-item" data-eventMessage="aggressive"><a href="#" data-eventMessage="aggressive">Вызвать на дуэль</a></li>
+                <li class="action-item" data-eventMessage="neutral"><a href="#" data-eventMessage="neutral">Нанять бойца</a></li>
+                <li class="action-item" data-eventMessage="neutral"><a href="#" data-eventMessage="neutral">Зайти в Saloon</a></li>
+                <li class="action-item" data-eventMessage="positive"><a href="#" data-eventMessage="positive">Отдохнуть</a></li>
+                <li class="action-item" data-eventMessage="positive"><a href="#" data-eventMessage="positive">Повысить уровень</a></li>
             </ul>
         </div>
     </div>
@@ -87,5 +88,7 @@
         </div>
     </div>
 </div>
+
+<script src="js/script.js" type="application/javascript"></script>
 </body>
 </html>

@@ -16,6 +16,7 @@ function createEvent(event)
         eventSpan.textContent = target.textContent;
         eventSpan.style.fontWeight = 'bold';
 
+
         eventMessage.textContent = 'Игрок Name совершил действие ';
 
         switch (target.dataset.eventmessage) {
