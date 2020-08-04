@@ -28,7 +28,7 @@
         </label>
         <br>
         <label for="first-name">Имя
-            <input class="input-field"  id="first-name" name="firstName">
+            <input class="input-field" id="first-name" name="firstName">
             <#if message??>
                 <div class="alert alert-danger" role="alert">${message}</div>
             </#if>
@@ -38,7 +38,7 @@
         </label>
         <br>
         <label for="last-name">Фамилия
-            <input class="input-field"  id="last-name" name="lastName">
+            <input class="input-field" id="last-name" name="lastName">
             <#if message??>
                 <div class="alert alert-danger" role="alert">${message}</div>
             </#if>

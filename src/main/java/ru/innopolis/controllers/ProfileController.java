@@ -65,7 +65,7 @@ public class ProfileController {
             return "profile";
         } else {
             try {
-                service.signUp(playerForm);
+                service.signUp(playerForm, authentication);
             } catch (DataIntegrityViolationException e) {
                 model.addAttribute("messageNickName", "NickName занят. Введите другое значение.");
                 return "profile";

@@ -3,6 +3,7 @@ package ru.innopolis.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -11,7 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import ru.innopolis.forms.UserForm;
 import ru.innopolis.services.SignUpService;
-
 import javax.validation.Valid;
 import java.util.List;
 
@@ -28,7 +28,10 @@ SignUpController {
     private SignUpService service;
 
     @GetMapping("/signup")
-    public String getSignUpPage() {
+    public String getSignUpPage(Authentication authentication) {
+        if (authentication != null) {
+            return "redirect:/";
+        }
         return "signup";
     }
 
@@ -48,8 +51,6 @@ SignUpController {
                     model.addAttribute("message", message);
                 }
             }
-//            model.addAttribute("message", "Поле не может быть пустым");
-
             return "signup";
         } else {
             try {
