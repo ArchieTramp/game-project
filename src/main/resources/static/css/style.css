@@ -104,6 +104,7 @@ body {
     box-sizing: border-box;
     list-style: none;
     margin-bottom: 10px;
+    cursor: pointer;
 }
 
 .action-item:hover {
@@ -197,6 +198,8 @@ button:hover {
     width: 100%;
     height: 140px;
     border: 1px solid black;
+    display: flex;
+    flex-direction: column;
 }
 
 .event-items {
@@ -206,4 +209,32 @@ button:hover {
 
 .event-items::-webkit-scrollbar {
     width: 0;
+}
+
+.event-items .event-item:last-child {
+    margin-bottom: 0;
+}
+
+.event-items .event-item {
+    padding: 10px;
+    margin-bottom: 10px;
+    min-height: 40px;
+}
+
+.agressive-event {
+    color: #D8000C;
+    background-color: #FFBABA;
+    border: 1px solid #D8000C;
+}
+
+.neutral-event {
+    color: #696969;
+    background-color: #D3D3D3;
+    border: 1px solid #696969;
+}
+
+.positive-event {
+    color: #4F8A10;
+    background-color: #DFF2BF;
+    border: 1px solid #4F8A10;
 }

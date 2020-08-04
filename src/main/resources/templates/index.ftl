@@ -13,19 +13,19 @@
             <table class="specifications">
                 <tr class="specification-item">
                     <td>HP</td>
-                    <td>150</td>
+                    <td>100</td>
                 </tr>
                 <tr class="specification-item">
                     <td>MP</td>
-                    <td>200</td>
+                    <td>100</td>
                 </tr>
                 <tr class="specification-item">
                     <td>LVL</td>
-                    <td>90</td>
+                    <td>1</td>
                 </tr>
                 <tr class="specification-item">
                     <td>EXP</td>
-                    <td>80000</td>
+                    <td>0</td>
                 </tr>
             </table>
             <h3 class="skills">Навыки</h3>
