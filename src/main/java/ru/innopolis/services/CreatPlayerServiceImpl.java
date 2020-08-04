@@ -19,7 +19,7 @@ import static ru.innopolis.transfer.UserDto.from;
  */
 
 @Service
-public class CreatPlayerServiceImpl implements CreatPlayerService{
+public class CreatPlayerServiceImpl implements CreatPlayerService {
     @Autowired
     private PlayersRepository playersRepository;
 
@@ -28,7 +28,7 @@ public class CreatPlayerServiceImpl implements CreatPlayerService{
         UserDetailsImpl details = (UserDetailsImpl) authentication.getPrincipal();
         Player player = Player.builder()
                 .nickName(playerForm.getNickName())
-                .HP(100)
+                .HP(125)
                 .MP(100)
                 .level(1)
                 .strength(100)
@@ -37,6 +37,12 @@ public class CreatPlayerServiceImpl implements CreatPlayerService{
                 .luck(100)
                 .gold(100)
                 .user(details.getUser())
+                .experience(0)
+                .strength(1)
+                .charisma(1)
+                .intelligence(1)
+                .luck(1)
+                .gold(10)
                 .build();
         playersRepository.save(player);
 

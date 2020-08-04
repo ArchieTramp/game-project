@@ -35,8 +35,8 @@ public class GameDice extends Game {
     public GameDice() throws NoSuchProviderException, NoSuchAlgorithmException {
     }
 
-    public void executeGame() {
-        System.out.println(throwDice1() + throwDice2());
-//        return throwDice() + throwDice();
+    public int executeGame() {
+//        System.out.println(throwDice1() + throwDice2());
+        return throwDice1() + throwDice2();
     }
 }
