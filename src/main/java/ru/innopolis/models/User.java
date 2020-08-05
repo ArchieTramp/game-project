@@ -18,6 +18,7 @@ import java.util.List;
  * @author Artyr Gilyazov
  */
 
+@ToString
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -44,7 +45,7 @@ public class User {
     @Enumerated(value = EnumType.STRING)
     private State state;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     List<Player> players;
 
 
