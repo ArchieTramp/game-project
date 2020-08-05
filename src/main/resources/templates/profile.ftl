@@ -39,14 +39,14 @@
             </#if>
         </label>
         <br>
-        <label for="remember-me">
-            <input type="checkbox" id="remember-me" name="remember-me">Запомнить меня</label>
         <input type="submit" value="Создать">
         <br>
     </form>
 </div>
 
 <a href="/users">Для администратора</a>
+<p></p>
+<a href="/start">Начать игру</a>
 <p></p>
 <a href="/logout">Выход</a>
 </body>
