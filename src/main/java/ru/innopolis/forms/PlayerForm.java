@@ -10,6 +10,4 @@ public class PlayerForm {
     @NotBlank(message = "Поле не может быть пустым")
     private String nickName;
 
-
-
 }

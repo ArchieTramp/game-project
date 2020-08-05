@@ -41,25 +41,23 @@ public class Player implements Play {
     private Integer luck; //удача//
     private Integer gold; //бабки//
     private Integer bandit; //помощник//
-
-    public Player(String nickName, Integer HP, Integer MP, Integer experience, Integer level, Integer strength, Integer charisma,
-                  Integer intelligence, Integer luck, Integer gold, Integer bandit) {
-        this.nickName = nickName;
-        this.HP = HP;
-        this.MP = MP;
-        this.experience =  experience;
-        this.level = level;
-        this.strength = strength;
-        this.charisma = charisma;
-        this.intelligence = intelligence;
-        this.luck = luck;
-        this.gold = gold;
-        this.bandit = bandit;
-    }
-
     @ManyToOne
     @JoinColumn(name = "user_id")
     User user;
+//    public Player(String nickName, Integer HP, Integer MP, Integer experience, Integer level, Integer strength, Integer charisma,
+//                  Integer intelligence, Integer luck, Integer gold, Integer bandit) {
+//        this.nickName = nickName;
+//        this.HP = HP;
+//        this.MP = MP;
+//        this.experience =  experience;
+//        this.level = level;
+//        this.strength = strength;
+//        this.charisma = charisma;
+//        this.intelligence = intelligence;
+//        this.luck = luck;
+//        this.gold = gold;
+//        this.bandit = bandit;
+//    }
 
     @Override
     public void play(Game game) {

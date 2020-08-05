@@ -28,27 +28,16 @@ public class UserController {
 
     @GetMapping(value = "/users/{userID}")
     public String getUsersPage(ModelMap model, @PathVariable Long userID) {
-        User user = null;
-        try {
-            user = usersRepository.getOne(userID);
-            model.addAttribute("allowBanned", false);
-
-        } catch (Exception ex) {
-            model.addAttribute("errorMessage", ex.getMessage());
-            return "user";
-        }
+        User user = usersRepository.getOne(userID);
         model.addAttribute("user", user);
-
         return "user";
     }
 
     @PostMapping("/users/{userID}")
     public String bannedUsers(ModelMap model, @PathVariable Long userID) {
-//        List<User> usersFromserver = usersRepository.findAll();
         if (userID != 11) {
             bannedPlayerService.bannedPlayer(userID);
         } else {
-
             model.addAttribute("message", "Админа банить нельзя");
             return "redirect:/users/{userID}";
         }

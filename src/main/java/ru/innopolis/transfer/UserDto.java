@@ -25,7 +25,6 @@ public class UserDto {
         return UserDto.builder()
                 .firstName(user.getFirstName())
                 .lastName(user.getLastName())
-//                .players(user.getPlayers())
                 .build();
 
 

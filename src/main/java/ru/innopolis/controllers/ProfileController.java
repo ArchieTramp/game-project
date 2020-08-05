@@ -37,6 +37,7 @@ public class ProfileController {
 
     @Autowired
     private CreatPlayerService service;
+
     @Autowired
     private PlayersRepository playersRepository;
 
@@ -50,7 +51,6 @@ public class ProfileController {
         model.addAttribute("user", user);
         List<Player> players = playersRepository.findAllByUser_Id(details.getUser().getId());
         model.addAttribute("players", players);
-
         return "profile";
     }
 
@@ -84,8 +84,5 @@ public class ProfileController {
             }
             return "redirect:/";
         }
-
     }
-
-
 }
