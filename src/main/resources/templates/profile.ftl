@@ -5,8 +5,24 @@
     <link href="/css/bootstrap.min.css" rel="stylesheet"/>
 </head>
 <body>
-<div class="form-style-2-heading">${user.firstName}</div>
-<div class="form-style-2-heading">${user.lastName}</div>
+<div class="form-style-2-heading">Имя пользователя: ${user.firstName}</div>
+<div class="form-style-2-heading">Фамилия пользователя: ${user.lastName}</div>
+<div class="form-style-2">Доступные игровые персонажи пользователя:
+    <div class="form-style-2-heading">
+        <#if players??>
+            <#list players as player>
+                <tr>
+                    <br>
+                    <td>${player.nickName}</td>
+                    <br>
+                </tr>
+            <#else>
+                Нет доступных игроков
+            </#list>
+        </#if>
+    </div>
+</div>
+
 <div class="form-style-2">
     <div class="form-style-2-heading">
         Создайте игрового персонажа.
