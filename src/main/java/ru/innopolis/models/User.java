@@ -1,15 +1,8 @@
 package ru.innopolis.models;
 
 import lombok.*;
-import org.springframework.beans.factory.annotation.Autowired;
 import ru.innopolis.forms.UserForm;
-
 import javax.persistence.*;
-import javax.validation.Validation;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 import java.util.List;
 
 /**
@@ -25,6 +18,7 @@ import java.util.List;
 @Builder
 @Entity
 @Table(name = "fix_user", uniqueConstraints = @UniqueConstraint(columnNames = {"login"}))
+@EqualsAndHashCode
 public class User {
 
     @Id

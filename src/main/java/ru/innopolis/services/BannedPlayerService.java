@@ -8,6 +8,6 @@ import ru.innopolis.models.User;
  * @author "Andrei Prokofiev"
  */
 public interface BannedPlayerService {
-    void bannedPlayer(Long id);
+    void bannedUser(Long id);
 
 }

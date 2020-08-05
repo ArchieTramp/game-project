@@ -59,7 +59,9 @@
         <div class="action-window">
             <h2 class="action-title">Действия</h2>
             <ul class="action-items">
-                <li class="action-item" data-eventMessage="aggressive"><a href="#" data-eventMessage="aggressive">Ограбить караван</a></li>
+<#--                <li class="action-item" data-eventMessage="aggressive"><a href="#" data-eventMessage="aggressive">Ограбить караван</a></li>-->
+<#--                action="${'/lootcaravan/' + player.id}" method="POST-->
+                <li class="action-item" data-eventMessage="aggressive"><a href="${'/lootcaravan/' + player.id}" data-eventMessage="aggressive">Ограбить караван</a></li>
                 <li class="action-item" data-eventMessage="aggressive"><a href="#" data-eventMessage="aggressive">Ограбить игрока</a></li>
                 <li class="action-item" data-eventMessage="aggressive"><a href="#" data-eventMessage="aggressive">Вызвать на дуэль</a></li>
                 <li class="action-item" data-eventMessage="neutral"><a href="#" data-eventMessage="neutral">Нанять бойца</a></li>

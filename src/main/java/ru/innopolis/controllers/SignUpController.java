@@ -1,6 +1,5 @@
 package ru.innopolis.controllers;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.core.Authentication;
@@ -14,7 +13,6 @@ import ru.innopolis.forms.UserForm;
 import ru.innopolis.services.SignUpService;
 import javax.validation.Valid;
 import java.util.List;
-
 
 /**
  *

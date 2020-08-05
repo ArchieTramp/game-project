@@ -14,6 +14,7 @@
                 <tr>
                     <br>
                     <td>${player.nickName}</td>
+                    <td><a href="${'/' + player.id}">Выбрать игрока</a></td>
                     <br>
                 </tr>
             <#else>

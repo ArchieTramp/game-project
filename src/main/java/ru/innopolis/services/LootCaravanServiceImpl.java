@@ -1,13 +1,14 @@
 package ru.innopolis.services;
 
-import org.apache.tomcat.jni.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import ru.innopolis.models.Player;
 import ru.innopolis.repositories.PlayersRepository;
-import ru.innopolis.repositories.UsersRepository;
 
 import java.util.Random;
 
+
+@Service
 public class LootCaravanServiceImpl implements LootCaravanService {
 
     @Autowired
@@ -17,7 +18,7 @@ public class LootCaravanServiceImpl implements LootCaravanService {
     @Override
     public void lootCaravan(Player player) {
 
-        playersRepository.findByNickName(player.getNickName());
+//        playersRepository.findByNickName(player.getNickName());
 
         Random randomLoot = new Random();
         Random randomLuck = new Random();
@@ -45,7 +46,7 @@ public class LootCaravanServiceImpl implements LootCaravanService {
                 player.setExperience(exp);
                 player.setGold(gold);
 
-                playersRepository.save(player);
+//                playersRepository.save(player);
             } else {
                 gold = gold + resultLoot + (10 * bandit);
                 System.out.println(player.getNickName() + " получил " + gold + "золота и " + exp
@@ -54,7 +55,7 @@ public class LootCaravanServiceImpl implements LootCaravanService {
                 player.setExperience(exp);
                 player.setGold(gold);
 
-                playersRepository.save(player);
+//                playersRepository.save(player);
 
             }
 
