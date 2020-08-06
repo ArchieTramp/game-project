@@ -21,7 +21,6 @@ import javax.persistence.*;
 @Entity
 @EqualsAndHashCode
 @Table(name = "players", uniqueConstraints = @UniqueConstraint(columnNames = {"nickName"}))
-//
 public class Player implements Play {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

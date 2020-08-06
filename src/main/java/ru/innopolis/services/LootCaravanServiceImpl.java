@@ -4,9 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.innopolis.models.Player;
 import ru.innopolis.repositories.PlayersRepository;
-
 import java.util.Random;
-
 
 @Service
 public class LootCaravanServiceImpl implements LootCaravanService {
@@ -14,24 +12,17 @@ public class LootCaravanServiceImpl implements LootCaravanService {
     @Autowired
     private PlayersRepository playersRepository;
 
-
     @Override
     public void lootCaravan(Player player) {
-
-//        playersRepository.findByNickName(player.getNickName());
-
         Random randomLoot = new Random();
         Random randomLuck = new Random();
-
         int mp = player.getMP();
         int exp = player.getExperience();
         int gold = player.getGold();
         int bandit = player.getBandit();
         int luck = player.getLuck();
 
-
         if (mp >= 50) {
-
             int resultLoot = randomLoot.nextInt(21);
             int resultOfLuck = randomLuck.nextInt(20);
             int doubleLoot = resultOfLuck + luck;
@@ -45,8 +36,7 @@ public class LootCaravanServiceImpl implements LootCaravanService {
                 player.setMP(mp);
                 player.setExperience(exp);
                 player.setGold(gold);
-
-//                playersRepository.save(player);
+                playersRepository.save(player);
             } else {
                 gold = gold + resultLoot + (10 * bandit);
                 System.out.println(player.getNickName() + " получил " + gold + "золота и " + exp
@@ -54,9 +44,7 @@ public class LootCaravanServiceImpl implements LootCaravanService {
                 player.setMP(mp);
                 player.setExperience(exp);
                 player.setGold(gold);
-
-//                playersRepository.save(player);
-
+                playersRepository.save(player);
             }
 
         } else {

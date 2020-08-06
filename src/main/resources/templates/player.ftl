@@ -28,16 +28,16 @@
                 <td>:</td>
                 <td>${player.level}</td>
             </tr>
-<#--            <tr>-->
-<#--                <#if player.bandit !=null>-->
-<#--                    <td>Banditos</td>-->
-<#--                    <td>:</td>-->
-<#--                    <td>${player.bandit}</td>-->
-<#--                <#else>-->
-<#--                    <td>Нет доступных бандитов</td>-->
-<#--                </#if>-->
+            <tr>
+                <#if player.bandit ??>
+                    <td>Banditos</td>
+                    <td>:</td>
+                    <td>${player.bandit}</td>
+                <#else>
+                    <td>Нет доступных бандитов</td>
+                </#if>
 
-<#--            </tr>-->
+            </tr>
         </table>
 
         <br/><br/>

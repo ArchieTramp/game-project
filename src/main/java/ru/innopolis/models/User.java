@@ -24,24 +24,16 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String firstName;
-
     private String lastName;
-
     private String login;
-
     private String hashPassword;
-
     @Enumerated(value = EnumType.STRING)
     private Role role;
-
     @Enumerated(value = EnumType.STRING)
     private State state;
-
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     List<Player> players;
-
 
     public static User from(UserForm form) {
         return User.builder()

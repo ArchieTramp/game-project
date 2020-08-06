@@ -13,39 +13,48 @@
             <h2 class="profile-title">Характеристики персонажа</h2>
             <table class="specifications">
                 <tr class="specification-item">
+                    <td>NICKNAME</td>
+                    <td>${player.nickName}</td>
+                </tr>
+                <tr class="specification-item">
                     <td>HP</td>
-                    <td>100</td>
+                    <td>${player.HP}</td>
                 </tr>
                 <tr class="specification-item">
                     <td>MP</td>
-                    <td>100</td>
+                    <td>${player.MP}</td>
+                </tr>
+                <tr class="specification-item">
+                    <td>Gold</td>
+                    <td>${player.gold}</td>
                 </tr>
                 <tr class="specification-item">
                     <td>LVL</td>
-                    <td>1</td>
+                    <td>${player.level}</td>
                 </tr>
                 <tr class="specification-item">
                     <td>EXP</td>
-                    <td>0</td>
+                    <td>${player.experience}</td>
                 </tr>
+
             </table>
             <h3 class="skills">Навыки</h3>
             <table class="specifications">
                 <tr class="specification-item">
-                    <td>Знание</td>
-                    <td>1</td>
+                    <td>INTELLIGENCE</td>
+                    <td>${player.intelligence}</td>
                 </tr>
                 <tr class="specification-item">
-                    <td>Сила</td>
-                    <td>1</td>
+                    <td>STRENGTH</td>
+                    <td>${player.strength}</td>
                 </tr>
                 <tr class="specification-item">
-                    <td>Общение</td>
-                    <td>1</td>
+                    <td>CHARISMA</td>
+                    <td>${player.charisma}</td>
                 </tr>
                 <tr class="specification-item">
-                    <td>Удача</td>
-                    <td>1</td>
+                    <td>LUCK</td>
+                    <td>${player.luck}</td>
                 </tr>
             </table>
         </div>

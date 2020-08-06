@@ -43,6 +43,8 @@ public class CreatPlayerServiceImpl implements CreatPlayerService {
                 .intelligence(1)
                 .luck(1)
                 .gold(10)
+                .bandit(0)
+                .experience(0)
                 .build();
         playersRepository.save(player);
 

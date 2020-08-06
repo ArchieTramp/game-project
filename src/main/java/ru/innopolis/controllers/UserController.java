@@ -9,6 +9,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import ru.innopolis.models.User;
 import ru.innopolis.repositories.UsersRepository;
 import ru.innopolis.services.BannedPlayerService;
+import ru.innopolis.transfer.UserDto;
+
+import static ru.innopolis.transfer.UserDto.from;
+
 
 /**
  * UserController
@@ -27,7 +31,7 @@ public class UserController {
 
     @GetMapping(value = "/users/{userId}")
     public String getUsersPage(ModelMap model, @PathVariable Long userId) {
-        User user = usersRepository.getOne(userId);
+        UserDto user = from(usersRepository.getOne(userId));
         model.addAttribute("user", user);
         return "user";
     }
