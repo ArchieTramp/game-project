@@ -34,7 +34,9 @@
                 <td>${user.state}</td>
             </tr>
         </table>
+
         <br/><br/>
+
         <form action="${'/users/' + user.id}" method="POST">
             Забанить этого пользователя? <input type="submit" value="Yes"/>
             <#if message??>
@@ -43,6 +45,7 @@
         </form>
 
 </div>
+
 <a href="/users">Вернуться к списку пользователей</a>
 
 </body>

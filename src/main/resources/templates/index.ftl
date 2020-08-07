@@ -13,39 +13,48 @@
             <h2 class="profile-title">Характеристики персонажа</h2>
             <table class="specifications">
                 <tr class="specification-item">
+                    <td>NICKNAME</td>
+                    <td>${player.nickName}</td>
+                </tr>
+                <tr class="specification-item">
                     <td>HP</td>
-                    <td>100</td>
+                    <td>${player.HP}</td>
                 </tr>
                 <tr class="specification-item">
                     <td>MP</td>
-                    <td>100</td>
+                    <td>${player.MP}</td>
+                </tr>
+                <tr class="specification-item">
+                    <td>Gold</td>
+                    <td>${player.gold}</td>
                 </tr>
                 <tr class="specification-item">
                     <td>LVL</td>
-                    <td>1</td>
+                    <td>${player.level}</td>
                 </tr>
                 <tr class="specification-item">
                     <td>EXP</td>
-                    <td>0</td>
+                    <td>${player.experience}</td>
                 </tr>
+
             </table>
             <h3 class="skills">Навыки</h3>
             <table class="specifications">
                 <tr class="specification-item">
-                    <td>Знание</td>
-                    <td>1</td>
+                    <td>INTELLIGENCE</td>
+                    <td>${player.intelligence}</td>
                 </tr>
                 <tr class="specification-item">
-                    <td>Сила</td>
-                    <td>1</td>
+                    <td>STRENGTH</td>
+                    <td>${player.strength}</td>
                 </tr>
                 <tr class="specification-item">
-                    <td>Общение</td>
-                    <td>1</td>
+                    <td>CHARISMA</td>
+                    <td>${player.charisma}</td>
                 </tr>
                 <tr class="specification-item">
-                    <td>Удача</td>
-                    <td>1</td>
+                    <td>LUCK</td>
+                    <td>${player.luck}</td>
                 </tr>
             </table>
         </div>
@@ -59,7 +68,9 @@
         <div class="action-window">
             <h2 class="action-title">Действия</h2>
             <ul class="action-items">
-                <li class="action-item" data-eventMessage="aggressive"><a href="#" data-eventMessage="aggressive">Ограбить караван</a></li>
+<#--                <li class="action-item" data-eventMessage="aggressive"><a href="#" data-eventMessage="aggressive">Ограбить караван</a></li>-->
+<#--                action="${'/lootcaravan/' + player.id}" method="POST-->
+                <li class="action-item" data-eventMessage="aggressive"><a href="${'/lootcaravan/' + player.id}" data-eventMessage="aggressive">Ограбить караван</a></li>
                 <li class="action-item" data-eventMessage="aggressive"><a href="#" data-eventMessage="aggressive">Ограбить игрока</a></li>
                 <li class="action-item" data-eventMessage="aggressive"><a href="#" data-eventMessage="aggressive">Вызвать на дуэль</a></li>
                 <li class="action-item" data-eventMessage="neutral"><a href="#" data-eventMessage="neutral">Нанять бойца</a></li>

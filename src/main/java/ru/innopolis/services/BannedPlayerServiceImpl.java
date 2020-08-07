@@ -23,7 +23,7 @@ public class BannedPlayerServiceImpl implements BannedPlayerService {
     UsersRepository usersRepository;
 
     @Override
-    public void bannedPlayer(Long id) {
+    public void bannedUser(Long id) {
         Optional<User> userFromDB = usersRepository.findById(id);
         User user1 = userFromDB.get();
         user1.setState(State.BANNED);

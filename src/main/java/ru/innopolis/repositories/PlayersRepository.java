@@ -6,6 +6,7 @@ import ru.innopolis.models.Player;
 
 
 import java.util.List;
+import java.util.Optional;
 
 
 /**
@@ -16,4 +17,5 @@ import java.util.List;
 public interface PlayersRepository extends JpaRepository<Player, Long> {
     Player findByNickName(String nickName);
     List<Player> findAllByUser_Id(Long id);
+    Optional<Player> findById(Long id);
 }
