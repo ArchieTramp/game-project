@@ -13,4 +13,5 @@ import ru.innopolis.models.Player;
 
 public interface CreatPlayerService {
     void signUp(PlayerForm playerForm, Authentication authentication);
+    void deletPlayer(Long id);
 }

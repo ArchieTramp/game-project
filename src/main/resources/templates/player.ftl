@@ -42,12 +42,8 @@
 
         <br/><br/>
 
-        <form action="${'/start/' + player.id}" method="GET">
-            Начать игру <input type="submit" value="Yes"/>
-            <#--            <#if message??>-->
-            <#--                <div class="alert alert-danger" role="alert">${message}</div>-->
-            <#--            </#if>-->
-        </form>
+        <form action="${'/start'}" method="get">Начать игру <input type="submit" value="Yes"/></form>
+        <form action="${'/creatplayer/delete'}" method="post">Удалить игрока <input type="submit" value="Delete"/></form>
 
 </div>
 
