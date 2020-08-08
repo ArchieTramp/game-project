@@ -13,7 +13,6 @@ public class LevelUpByGoldServiceImpl implements LevelUpByGoldService {
     @Override
     public void levelUp(Player player) {
 
-        playersRepository.findByNickName(player.getNickName());
 
         int gold = player.getGold();
         int exp = player.getExperience();

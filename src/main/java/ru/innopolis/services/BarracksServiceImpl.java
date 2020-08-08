@@ -13,8 +13,6 @@ public class BarracksServiceImpl implements BarracksService {
     @Override
     public void mercenaryInBarracks(Player player) {
 
-        playersRepository.findByNickName(player.getNickName());
-
         int bandit = player.getBandit();
         int gold = player.getGold();
 

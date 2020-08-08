@@ -11,10 +11,13 @@ public class DuelWithPlayerServiceImpl implements DuelWithPlayerService {
     private PlayersRepository playersRepository;
     private GameDice gameDice;
     private LevelUpByExpServiceImpl levelUpByExpService;
+    private LowHPServiceImpl lowHPService;
 
 
     @Override
     public void duelWithPlayer(Player player, Player player1) {
+
+        lowHPService.lowHP(player);
 
         int mp = player.getMP();
         int exp = player.getExperience();

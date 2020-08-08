@@ -12,10 +12,11 @@ public class LootPlayerServiceImpl implements LootPlayerService {
     private PlayersRepository playersRepository;
     private GameDice gameDice;
     private LevelUpByExpServiceImpl levelUpByExpService;
+    private LowHPServiceImpl lowHPService;
 
     @Override
     public void lootPlayer(Player player, Player player1) {
-
+        lowHPService.lowHP(player);
         int mp = player.getMP();
         int exp = player.getExperience();
         int luck = player.getLuck();

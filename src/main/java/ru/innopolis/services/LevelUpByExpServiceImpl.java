@@ -12,7 +12,6 @@ public class LevelUpByExpServiceImpl implements LevelUpByExpService {
     @Override
     public void levelUpByExp(Player player) {
 
-        playersRepository.findByNickName(player.getNickName());
 
         int exp = player.getExperience();
         int lvl = player.getLevel();

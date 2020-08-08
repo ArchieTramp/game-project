@@ -18,8 +18,6 @@ public class RestPlayerServiceImpl implements RestPlayerService {
 
     public void restPlayer(Player player) {
 
-        playersRepository.findByNickName(player.getNickName());
-
         int lvl = player.getLevel();
         int str = player.getStrength();
         int charisma = player.getCharisma();

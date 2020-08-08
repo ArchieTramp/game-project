@@ -12,9 +12,11 @@ public class LootCaravanServiceImpl implements LootCaravanService {
     @Autowired
     private PlayersRepository playersRepository;
     private LevelUpByExpServiceImpl levelUpByExpService;
+    private LowHPServiceImpl lowHPService;
 
     @Override
     public void lootCaravan(Player player) {
+        lowHPService.lowHP(player);
         Random randomLoot = new Random();
         Random randomLuck = new Random();
         int mp = player.getMP();
