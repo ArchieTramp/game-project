@@ -61,17 +61,25 @@
     </div>
     <div class="game">
         <div class="game-window">
-
+            <#if gameMessage??>
+                <h2>${gameMessage}</h2>
+            </#if>
         </div>
+<#--        <div class="game-window">-->
+<#--            <h2>Hello</h2>-->
+<#--        </div>-->
     </div>
     <div class="actions">
         <div class="action-window">
             <h2 class="action-title">Действия</h2>
             <ul class="action-items">
-                <form action="${'/lootcaravan'}" method="post"><input class="action-item" data-eventMessage="aggressive" type="submit" value="Ограбить караван"></form>
-                <form action="${'/lootcaravan'}" method="post"><input class="action-item" data-eventMessage="aggressive" type="submit" value="Ограбить караван"></form>
+                <form action="${'/lootcaravan'}" method="post">
+                    <input class="action-item" type="submit" value="Ограбить караван">
+                </form>
 
-                <form action="${'/exitGame'}" method="post"><input class="action-item" data-eventMessage="aggressive" type="submit" value="Выйти из игры"></form>
+                <form action="${'/exitGame'}" method="post">
+                    <input class="action-item" type="submit" value="Выйти из игры">
+                </form>
 
 
                 <#--                <li class="action-item" data-eventMessage="aggressive"><a href="#" data-eventMessage="aggressive">Ограбить караван</a></li>-->
@@ -97,8 +105,9 @@
                 <div class="message-items"></div>
                 <form id="message-form" class="message-form">
                     <input type="text" class="chat-input" name="chat">
-                    <button id="message-send" class="message-send"><img src="images/message-button.png" width="100%"
-                                                                        height="100%"></button>
+                    <button id="message-send" class="message-send">
+                        <img src="images/message-button.png" width="100%" height="100%">
+                    </button>
                 </form>
             </div>
         </div>
@@ -111,6 +120,5 @@
     </div>
 </div>
 
-<script src="js/script.js" type="application/javascript"></script>
 </body>
 </html>

@@ -73,6 +73,10 @@ body {
     background-size: 100% 105%, auto;
     background-position: center;
     border: none;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .actions {

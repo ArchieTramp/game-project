@@ -14,7 +14,7 @@ public class LootCaravanServiceImpl implements LootCaravanService {
     private LevelUpByExpServiceImpl levelUpByExpService;
 
     @Override
-    public void lootCaravan(Player player) {
+    public String lootCaravan(Player player) {
         Random randomLoot = new Random();
         Random randomLuck = new Random();
         int mp = player.getMP();
@@ -51,7 +51,9 @@ public class LootCaravanServiceImpl implements LootCaravanService {
             }
 
         } else {
-            System.out.println("Нет энергии, отдохни в Салуне или приходи позже"); /*в логгер*/
+            return "Нет энергии, отдохни в Салуне или приходи позже"; /*в логгер*/
         }
+
+        return "Успешно ограбил караван! Твоя выручка " + gold;
     }
 }

@@ -20,6 +20,7 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import java.util.List;
+import java.util.Objects;
 
 import static ru.innopolis.transfer.PlayerDto.from;
 
@@ -51,6 +52,7 @@ public class PlayerController {
     public String getStartPage(ModelMap model, HttpServletRequest httpServletRequest) {
         Player player = (Player) httpServletRequest.getSession().getAttribute("player");
         model.addAttribute("player", player);
+        model.addAttribute("gameMessage", "Hello cowboy!");
         return "index";
     }
 
@@ -64,10 +66,11 @@ public class PlayerController {
     @PostMapping("/lootcaravan")
     public String lootCaravanController(ModelMap model, HttpServletRequest httpServletRequest) {
         Player player = (Player) httpServletRequest.getSession().getAttribute("player");
-        lootCaravanService.lootCaravan(player);
+        String message = lootCaravanService.lootCaravan(player);
 //        PlayerDto player = from(player1);
         model.addAttribute("player", player);
-        return "redirect:/start";
+        model.addAttribute("gameMessage", message);
+        return "index";
     }
 
 

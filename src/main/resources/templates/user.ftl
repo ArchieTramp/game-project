@@ -11,7 +11,6 @@
     <div class="form-style-2-heading">
         Пользователь
     </div>
-    <table>
         <table border="0">
             <tr>
                 <td>Id</td>
