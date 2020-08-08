@@ -3,5 +3,5 @@ package ru.innopolis.services;
 import ru.innopolis.models.Player;
 
 public interface DuelWithPlayerService {
-    void duelWithPlayer(Player player);
+    void duelWithPlayer(Player player, Player player1);
 }

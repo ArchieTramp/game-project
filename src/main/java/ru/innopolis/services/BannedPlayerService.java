@@ -9,5 +9,6 @@ import ru.innopolis.models.User;
  */
 public interface BannedPlayerService {
     void bannedUser(Long id);
+    void restoreUser(Long id);
 
 }

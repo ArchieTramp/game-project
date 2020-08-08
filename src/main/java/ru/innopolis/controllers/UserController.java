@@ -41,8 +41,24 @@ public class UserController {
         if (userId != 11) {
             bannedPlayerService.bannedUser(userId);
         } else {
+            UserDto user = from(usersRepository.getOne(userId));
+            model.addAttribute("user", user);
             model.addAttribute("message", "Админа банить нельзя");
-            return "redirect:/users/{userId}";
+            return "user";
+        }
+        return "redirect:/users";
+    }
+
+    @PostMapping("/users/restore/{userId}")
+    public String restoreUser(ModelMap model, @PathVariable Long userId) {
+        if (userId != 11) {
+            bannedPlayerService.restoreUser(userId);
+        } else {
+            UserDto user = from(usersRepository.getOne(userId));
+            model.addAttribute("user", user);
+            model.addAttribute("message1", "Админа нельзя редактировать");
+            return "user";
+//            return "/users/{userId}";
         }
         return "redirect:/users";
     }

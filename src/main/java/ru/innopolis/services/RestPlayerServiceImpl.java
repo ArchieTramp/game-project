@@ -31,4 +31,3 @@ public class RestPlayerServiceImpl implements RestPlayerService {
     }
 }
 
-// TODO: 02.08.2020 как заморозить выполнение других методов на час, чтобы отдых считался отдыхом

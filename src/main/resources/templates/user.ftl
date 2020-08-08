@@ -37,13 +37,19 @@
 
         <br/><br/>
 
-        <form action="${'/users/' + user.id}" method="POST">
+        <form action="${'/users/' + user.id}" method="post">
             Забанить этого пользователя? <input type="submit" value="Yes"/>
             <#if message??>
                 <div class="alert alert-danger" role="alert">${message}</div>
             </#if>
         </form>
 
+        <form action="${'/users/restore/' + user.id}" method="post">
+        Восстановить этого пользователя? <input type="submit" value="Yes"/>
+            <#if message1??>
+                <div class="alert alert-danger" role="alert">${message1}</div>
+            </#if>
+        </form>
 </div>
 
 <a href="/users">Вернуться к списку пользователей</a>

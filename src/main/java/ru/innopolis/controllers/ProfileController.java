@@ -9,6 +9,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import ru.innopolis.forms.PlayerForm;
 import ru.innopolis.models.Player;
 import ru.innopolis.repositories.PlayersRepository;
@@ -34,21 +35,8 @@ public class ProfileController {
     @Autowired
     private PlayersRepository playersRepository;
 
-    @GetMapping("/")
+    @RequestMapping("/")
     public String getProfilePage(ModelMap model, Authentication authentication) {
-        if (authentication == null) {
-            return "redirect:/login";
-        }
-        UserDetailsImpl details = (UserDetailsImpl) authentication.getPrincipal();
-        UserDto user = from(details.getUser());
-        model.addAttribute("user", user);
-        List<Player> players = playersRepository.findAllByUser_Id(details.getUser().getId());
-        model.addAttribute("players", players);
-        return "profile";
-    }
-
-    @PostMapping("/")
-    public String getProfilePagePost(ModelMap model, Authentication authentication) {
         if (authentication == null) {
             return "redirect:/login";
         }
