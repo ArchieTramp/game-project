@@ -9,9 +9,12 @@ public class BarracksServiceImpl implements BarracksService {
 
     @Autowired
     private PlayersRepository playersRepository;
+    private LowHPServiceImpl lowHPService;
 
     @Override
     public void mercenaryInBarracks(Player player) {
+
+        lowHPService.lowHP(player);
 
         int bandit = player.getBandit();
         int gold = player.getGold();

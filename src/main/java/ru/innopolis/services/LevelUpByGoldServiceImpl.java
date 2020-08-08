@@ -9,10 +9,12 @@ public class LevelUpByGoldServiceImpl implements LevelUpByGoldService {
     @Autowired
     private PlayersRepository playersRepository;
     private LevelUpByExpServiceImpl levelUpByExpService;
+    private LowHPServiceImpl lowHPService;
 
     @Override
     public void levelUp(Player player) {
 
+        lowHPService.lowHP(player);
 
         int gold = player.getGold();
         int exp = player.getExperience();
