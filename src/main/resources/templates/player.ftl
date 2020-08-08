@@ -42,8 +42,8 @@
 
         <br/><br/>
 
-        <form action="${'/start'}" method="get">Начать игру <input type="submit" value="Yes"/></form>
-        <form action="${'/creatplayer/delete'}" method="post">Удалить игрока <input type="submit" value="Delete"/></form>
+        <form action="${'/start'}" method="get">Начать игру <input type="submit" value="Yes?"/></form>
+        <form action="${'/creatplayer/delete'}" method="post">Удалить игрока <input type="submit" value="Delete?"/></form>
 
 </div>
 

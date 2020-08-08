@@ -54,6 +54,13 @@ public class PlayerController {
         return "index";
     }
 
+    @PostMapping("/creatplayer/delete")
+    public String delet(HttpServletRequest httpServletRequest) {
+        Player player = (Player) httpServletRequest.getSession().getAttribute("player");
+        playersRepository.deleteById(player.getId());
+        return "redirect:/";
+    }
+
     @PostMapping("/lootcaravan")
     public String lootCaravanController(ModelMap model, HttpServletRequest httpServletRequest) {
         Player player = (Player) httpServletRequest.getSession().getAttribute("player");
@@ -63,12 +70,7 @@ public class PlayerController {
         return "redirect:/start";
     }
 
-    @PostMapping("/creatplayer/delete")
-    public String delet(HttpServletRequest httpServletRequest) {
-        Player player = (Player) httpServletRequest.getSession().getAttribute("player");
-        playersRepository.deleteById(player.getId());
-        return "redirect:/";
-    }
+
 
     @PostMapping("/exitGame")
     public String exitGame(HttpServletRequest httpServletRequest) {
