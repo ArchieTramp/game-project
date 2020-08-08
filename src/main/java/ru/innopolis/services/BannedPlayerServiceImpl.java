@@ -29,4 +29,12 @@ public class BannedPlayerServiceImpl implements BannedPlayerService {
         user1.setState(State.BANNED);
         usersRepository.save(user1);
     }
+
+    @Override
+    public void restoreUser(Long id) {
+        Optional<User> userFromDB = usersRepository.findById(id);
+        User user1 = userFromDB.get();
+        user1.setState(State.ACTIVE);
+        usersRepository.save(user1);
+    }
 }

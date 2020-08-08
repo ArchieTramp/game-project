@@ -69,6 +69,7 @@
             <h2 class="action-title">Действия</h2>
             <ul class="action-items">
                 <form action="${'/lootcaravan'}" method="post"><input class="action-item" data-eventMessage="aggressive" type="submit" value="Ограбить караван"></form>
+                <form action="${'/lootcaravan'}" method="post"><input class="action-item" data-eventMessage="aggressive" type="submit" value="Ограбить караван"></form>
 
                 <form action="${'/exitGame'}" method="post"><input class="action-item" data-eventMessage="aggressive" type="submit" value="Выйти из игры"></form>
 
