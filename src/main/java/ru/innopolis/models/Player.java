@@ -13,6 +13,8 @@ import javax.persistence.*;
  * <p>
  * добавил навыки
  */
+
+
 @ToString
 @Data
 @AllArgsConstructor

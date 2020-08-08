@@ -14,12 +14,12 @@ import ru.innopolis.services.LootCaravanService;
  * @project game-project
  */
 
-@Controller
-public class StartPage {
-
-    @GetMapping(value = "/start")
-    String getStartPage() {
-
-        return "index";
-    }
-}
+//@Controller
+//public class StartPage {
+//
+//    @GetMapping(value = "/start")
+//    String getStartPage() {
+//
+//        return "index";
+//    }
+//}

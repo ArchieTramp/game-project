@@ -50,5 +50,10 @@ public class CreatPlayerServiceImpl implements CreatPlayerService {
 
     }
 
+    @Override
+    public void deletPlayer(Long id) {
+        playersRepository.deleteById(id);
+    }
+
 
 }
