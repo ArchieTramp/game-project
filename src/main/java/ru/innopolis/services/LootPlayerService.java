@@ -4,5 +4,5 @@ import ru.innopolis.models.Player;
 import ru.innopolis.models.User;
 
 public interface LootPlayerService {
-    void lootPlayer(Player player);
+    void lootPlayer(Player player, Player player1);
 }

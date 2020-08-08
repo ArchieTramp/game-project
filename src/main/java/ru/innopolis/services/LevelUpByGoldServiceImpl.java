@@ -8,6 +8,7 @@ public class LevelUpByGoldServiceImpl implements LevelUpByGoldService {
 
     @Autowired
     private PlayersRepository playersRepository;
+    private LevelUpByExpServiceImpl levelUpByExpService;
 
     @Override
     public void levelUp(Player player) {
@@ -26,6 +27,10 @@ public class LevelUpByGoldServiceImpl implements LevelUpByGoldService {
             player.setLevel(exp);
 
             playersRepository.save(player);
+
+            levelUpByExpService.levelUpByExp(player);
+
+
         } else {
             System.out.println("Мало золота");
         }

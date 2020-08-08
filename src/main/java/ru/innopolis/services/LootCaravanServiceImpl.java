@@ -11,6 +11,7 @@ public class LootCaravanServiceImpl implements LootCaravanService {
 
     @Autowired
     private PlayersRepository playersRepository;
+    private LevelUpByExpServiceImpl levelUpByExpService;
 
     @Override
     public void lootCaravan(Player player) {
@@ -37,6 +38,7 @@ public class LootCaravanServiceImpl implements LootCaravanService {
                 player.setExperience(exp);
                 player.setGold(gold);
                 playersRepository.save(player);
+                levelUpByExpService.levelUpByExp(player);
             } else {
                 gold = gold + resultLoot + (10 * bandit);
                 System.out.println(player.getNickName() + " получил " + gold + "золота и " + exp
@@ -45,6 +47,7 @@ public class LootCaravanServiceImpl implements LootCaravanService {
                 player.setExperience(exp);
                 player.setGold(gold);
                 playersRepository.save(player);
+                levelUpByExpService.levelUpByExp(player);
             }
 
         } else {

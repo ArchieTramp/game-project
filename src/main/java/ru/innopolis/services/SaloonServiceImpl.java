@@ -43,5 +43,3 @@ public class SaloonServiceImpl implements SaloonService {
     }
 }
 
-// TODO: 02.08.2020 как заморозить сервис на час? как рест не пройдет ибо выполнение необходимо сразу а потом sleep.
-
