@@ -1,23 +1,17 @@
 package ru.innopolis.services;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.EnableScheduling;
-import org.springframework.scheduling.annotation.Scheduled;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.innopolis.models.Player;
 import ru.innopolis.repositories.PlayersRepository;
 
 @Service
-@EnableScheduling
+@AllArgsConstructor
 public class RestPlayerServiceImpl implements RestPlayerService {
 
-    @Autowired
-    private PlayersRepository playersRepository;
-
+    private final PlayersRepository playersRepository;
 
     @Override
-    @Scheduled (fixedDelay = 3600000)
-
     public void restPlayer(Player player) {
 
         int lvl = player.getLevel();
