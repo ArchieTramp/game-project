@@ -76,6 +76,9 @@
                 <form action="${'/lootcaravan'}" method="post">
                     <input class="action-item" type="submit" value="Ограбить караван">
                 </form>
+                <form action="${'/mercenary'}" method="post">
+                    <input class="action-item" type="submit" value="Нанять бойца">
+                </form>
 
                 <form action="${'/exitGame'}" method="post">
                     <input class="action-item" type="submit" value="Выйти из игры">

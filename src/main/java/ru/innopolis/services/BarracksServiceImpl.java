@@ -1,9 +1,11 @@
 package ru.innopolis.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import ru.innopolis.models.Player;
 import ru.innopolis.repositories.PlayersRepository;
 
+@Service
 public class BarracksServiceImpl implements BarracksService {
 
 
@@ -11,7 +13,7 @@ public class BarracksServiceImpl implements BarracksService {
     private PlayersRepository playersRepository;
 
     @Override
-    public void mercenaryInBarracks(Player player) {
+    public String mercenaryInBarracks(Player player) {
 
         playersRepository.findByNickName(player.getNickName());
 
@@ -26,9 +28,10 @@ public class BarracksServiceImpl implements BarracksService {
             player.setBandit(bandit);
 
             playersRepository.save(player);
-        } else {
-            System.out.println("Подкопи бабла");
-        }
 
+            return "Поздравляем! К вам присоединился бандит!";
+        } else {
+            return "Подкопи бабла";
+        }
     }
 }
