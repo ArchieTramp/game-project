@@ -10,12 +10,16 @@ public class LootPlayerServiceImpl implements LootPlayerService {
 
     @Autowired
     private PlayersRepository playersRepository;
+    @Autowired
     private GameDice gameDice;
-    private LevelUpByExpServiceImpl levelUpByExpService;
+    @Autowired
+    private LevelUpByExpService levelUpByExpService;
+    @Autowired
+    private LowHPService lowHPService;
 
     @Override
     public void lootPlayer(Player player, Player player1) {
-
+        lowHPService.lowHP(player);
         int mp = player.getMP();
         int exp = player.getExperience();
         int luck = player.getLuck();

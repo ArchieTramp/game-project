@@ -9,12 +9,18 @@ public class DuelWithPlayerServiceImpl implements DuelWithPlayerService {
 
     @Autowired
     private PlayersRepository playersRepository;
+    @Autowired
     private GameDice gameDice;
-    private LevelUpByExpServiceImpl levelUpByExpService;
+    @Autowired
+    private LevelUpByExpService levelUpByExpService;
+    @Autowired
+    private LowHPService lowHPService;
 
 
     @Override
     public void duelWithPlayer(Player player, Player player1) {
+
+        lowHPService.lowHP(player);
 
         int mp = player.getMP();
         int exp = player.getExperience();

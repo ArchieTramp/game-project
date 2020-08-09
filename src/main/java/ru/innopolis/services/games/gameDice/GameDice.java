@@ -27,16 +27,16 @@ public class GameDice extends Game {
         return resulDice1;
     }
 
-    public int throwDice2(){
-        int resulDice2 = random2.nextInt(6)+1;
-        return resulDice2;
-    }
+//    public int throwDice2(){
+//        int resulDice2 = random2.nextInt(6)+1;
+//        return resulDice2;
+//    }
 
     public GameDice() throws NoSuchProviderException, NoSuchAlgorithmException {
     }
 
     public int executeGame() {
 //        System.out.println(throwDice1() + throwDice2());
-        return throwDice1() + throwDice2();
+        return throwDice1() /* + throwDice2()*/;
     }
 }

@@ -9,12 +9,13 @@ public class SaloonServiceImpl implements SaloonService {
 
     @Autowired
     private PlayersRepository playersRepository;
+    @Autowired
     private GameDice gameDice;
 
     @Override
     public void drinkingPoison(Player player) {
 
-        playersRepository.findByNickName(player.getNickName());
+
 
         int charisma = player.getCharisma();
         int str = player.getStrength();

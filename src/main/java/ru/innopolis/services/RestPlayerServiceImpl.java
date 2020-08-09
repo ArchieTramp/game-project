@@ -3,9 +3,11 @@ package ru.innopolis.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Service;
 import ru.innopolis.models.Player;
 import ru.innopolis.repositories.PlayersRepository;
 
+@Service
 @EnableScheduling
 public class RestPlayerServiceImpl implements RestPlayerService {
 
@@ -17,8 +19,6 @@ public class RestPlayerServiceImpl implements RestPlayerService {
     @Scheduled (fixedDelay = 3600000)
 
     public void restPlayer(Player player) {
-
-        playersRepository.findByNickName(player.getNickName());
 
         int lvl = player.getLevel();
         int str = player.getStrength();

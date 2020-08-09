@@ -11,11 +11,13 @@ public class BarracksServiceImpl implements BarracksService {
 
     @Autowired
     private PlayersRepository playersRepository;
+    @Autowired
+    private LowHPService lowHPService;
 
     @Override
     public String mercenaryInBarracks(Player player) {
 
-        playersRepository.findByNickName(player.getNickName());
+        lowHPService.lowHP(player);
 
         int bandit = player.getBandit();
         int gold = player.getGold();
