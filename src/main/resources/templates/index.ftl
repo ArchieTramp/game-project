@@ -68,10 +68,21 @@
             <#if gameMessage??>
                 <h2>${gameMessage}</h2>
             </#if>
+<#--            <#if players??>-->
+<#--                <#list players as player2>-->
+<#--                    <tr>-->
+<#--                        <form method="post" action="/users">-->
+<#--                            <br>-->
+<#--                            <td>${player2.nickName}</td>-->
+<#--                            <td>-->
+<#--                                <a href="${'/start/players'}">Вызвать этого игрока</a>-->
+<#--                            </td>-->
+<#--                            <br>-->
+<#--                        </form>-->
+<#--                    </tr>-->
+<#--                </#list>-->
+<#--            </#if>-->
         </div>
-<#--        <div class="game-window">-->
-<#--            <h2>Hello</h2>-->
-<#--        </div>-->
     </div>
     <div class="actions">
         <div class="action-window">
@@ -86,6 +97,12 @@
 
                 <form action="${'/saloon'}" method="post">
                     <input class="action-item" type="submit" value="Зайти в Saloon">
+                </form>
+                <form action="${'/saloon'}" method="post">
+                    <input class="action-item" type="submit" value="Зайти в Saloon">
+                </form>
+                <form action="${'/start/players'}" method="post">
+                    <input class="action-item" type="submit" value="Вызвать на дуэль">
                 </form>
                 <form action="${'/exitGame'}" method="post">
                     <input class="action-item" type="submit" value="Выйти из игры">

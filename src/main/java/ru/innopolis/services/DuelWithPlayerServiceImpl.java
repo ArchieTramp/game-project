@@ -1,11 +1,12 @@
 package ru.innopolis.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import ru.innopolis.models.Player;
 import ru.innopolis.repositories.PlayersRepository;
 import ru.innopolis.services.games.gameDice.GameDice;
 
+@Service
 public class DuelWithPlayerServiceImpl implements DuelWithPlayerService {
 
     @Autowired
@@ -19,7 +20,7 @@ public class DuelWithPlayerServiceImpl implements DuelWithPlayerService {
 
 
     @Override
-    public void duelWithPlayer(Player player, Player player1) {
+    public String duelWithPlayer(Player player, Player player1) {
 
 
         long timeCheckin = player.getRestTime();
@@ -75,15 +76,20 @@ public class DuelWithPlayerServiceImpl implements DuelWithPlayerService {
 
                     } else {
                         System.out.println("Перебросить бы, а то маловато будет");
+                        return "Перебросить бы, а то маловато будет";
                     }
                 }
             } else {
                 System.out.println("Мало энергии");
+                return "Мало энергии";
             }
         }
         else {
             System.out.println("Ты все еще отдыхаешь");
+            return "Ты все еще отдыхаешь";
         }
+
+        return "";
     }
 }
 

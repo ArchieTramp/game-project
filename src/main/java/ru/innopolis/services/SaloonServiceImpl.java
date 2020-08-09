@@ -21,7 +21,7 @@ public class SaloonServiceImpl implements SaloonService {
         long timeCheckin = player.getSaloonTime();
         long timeNow = System.currentTimeMillis();
 
-        if (timeNow > (timeCheckin + 3600000)) {
+        if (timeNow >= (timeCheckin + 3600000)) {
 
 
             int charisma = player.getCharisma();
@@ -51,14 +51,13 @@ public class SaloonServiceImpl implements SaloonService {
                     return "Перебрось";
                 }
             }
+        } else {
+            return "Рановато, приходи позже";
         }
-        else {
-            System.out.println("Рановато, приходи позже");
-        }
-            return "Luck";
-        }
+        return "Fuck";
 
     }
+}
 
 
 

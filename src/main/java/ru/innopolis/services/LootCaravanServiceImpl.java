@@ -7,6 +7,7 @@ import ru.innopolis.models.Player;
 import ru.innopolis.repositories.PlayersRepository;
 import java.util.Random;
 
+@Service
 public class LootCaravanServiceImpl implements LootCaravanService {
 
     @Autowired

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import ru.innopolis.models.Player;
 import ru.innopolis.repositories.PlayersRepository;
 
+@Service
 public class BarracksServiceImpl implements BarracksService {
 
 

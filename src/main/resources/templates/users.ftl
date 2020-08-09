@@ -20,7 +20,7 @@
         </tr>
         <#list usersFromServer as user>
             <tr>
-                <form method="post" action="/users">
+<#--                <form method="post" action="/users">-->
                     <br>
                     <td>${user.id}</td>
                     <td>${user.login}</td>
@@ -31,7 +31,7 @@
                         <a href="${'/users/' + user.id}">Edit</a>
                     </td>
                     <br>
-                </form>
+<#--                </form>-->
             </tr>
         </#list>
     </table>
