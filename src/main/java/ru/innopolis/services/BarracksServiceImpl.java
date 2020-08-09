@@ -10,7 +10,7 @@ public class BarracksServiceImpl implements BarracksService {
     @Autowired
     private PlayersRepository playersRepository;
     @Autowired
-    private LowHPServiceImpl lowHPService;
+    private LowHPService lowHPService;
 
     @Override
     public void mercenaryInBarracks(Player player) {

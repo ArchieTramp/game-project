@@ -9,7 +9,7 @@ import ru.innopolis.models.Player;
 public class LowHPServiceImpl implements LowHPService {
 
     @Autowired
-    private RestPlayerServiceImpl restPlayerService;
+    private RestPlayerService restPlayerService;
 
     @Override
     public void lowHP(Player player) {

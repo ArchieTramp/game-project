@@ -13,9 +13,9 @@ public class LootCaravanServiceImpl implements LootCaravanService {
     @Autowired
     private PlayersRepository playersRepository;
     @Autowired
-    private LevelUpByExpServiceImpl levelUpByExpService;
+    private LevelUpByExpService levelUpByExpService;
     @Autowired
-    private LowHPServiceImpl lowHPService;
+    private LowHPService lowHPService;
 
 
     @Override

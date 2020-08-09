@@ -9,9 +9,9 @@ public class LevelUpByGoldServiceImpl implements LevelUpByGoldService {
     @Autowired
     private PlayersRepository playersRepository;
     @Autowired
-    private LevelUpByExpServiceImpl levelUpByExpService;
+    private LevelUpByExpService levelUpByExpService;
     @Autowired
-    private LowHPServiceImpl lowHPService;
+    private LowHPService lowHPService;
 
     @Override
     public void levelUp(Player player) {
