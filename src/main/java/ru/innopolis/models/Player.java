@@ -4,6 +4,7 @@ import lombok.*;
 import ru.innopolis.services.games.Game;
 import ru.innopolis.services.games.Play;
 import javax.persistence.*;
+import java.security.Timestamp;
 
 /**
  * Player pojo
@@ -38,6 +39,9 @@ public class Player implements Play {
     private Integer luck; //удача//
     private Integer gold; //бабки//
     private Integer bandit; //помощник//
+    private Long saloonTime; //время для салуна//
+    private Long restTime; //время для отдыха//
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     User user;

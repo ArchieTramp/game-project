@@ -14,12 +14,15 @@ public class RestPlayerServiceImpl implements RestPlayerService {
     @Override
     public void restPlayer(Player player) {
 
+
         int lvl = player.getLevel();
         int str = player.getStrength();
         int charisma = player.getCharisma();
+        long time = System.currentTimeMillis();
 
         player.setHP(50 + (50 * lvl) + (str * 25));
         player.setMP(50 + (25 * lvl) + (charisma * 25));
+        player.setRestTime(time);
 
         playersRepository.save(player);
     }

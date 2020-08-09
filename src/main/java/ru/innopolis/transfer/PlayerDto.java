@@ -27,6 +27,8 @@ public class PlayerDto {
     private Integer luck; //удача//
     private Integer gold; //бабки//
     private Integer bandit; //помощник//
+    private Long saloonTime; //время//
+    private Long restTime;
 
     public static PlayerDto from(Player player) {
         return PlayerDto.builder()
@@ -42,6 +44,8 @@ public class PlayerDto {
                 .luck(player.getLuck())
                 .gold(player.getGold())
                 .bandit(player.getBandit())
+                .saloonTime(player.getSaloonTime())
+                .restTime(player.getRestTime())
                 .build();
     }
 

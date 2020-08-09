@@ -31,20 +31,16 @@ public class CreatPlayerServiceImpl implements CreatPlayerService {
                 .HP(125)
                 .MP(100)
                 .level(1)
-                .strength(100)
-                .charisma(100)
-                .intelligence(100)
-                .luck(100)
-                .gold(100)
-                .user(details.getUser())
                 .experience(0)
+                .user(details.getUser())
                 .strength(1)
                 .charisma(1)
                 .intelligence(1)
                 .luck(1)
                 .gold(10)
                 .bandit(0)
-                .experience(0)
+                .saloonTime(System.currentTimeMillis())
+                .restTime(System.currentTimeMillis())
                 .build();
         playersRepository.save(player);
 

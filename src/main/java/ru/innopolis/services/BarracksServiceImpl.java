@@ -1,11 +1,11 @@
 package ru.innopolis.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import ru.innopolis.models.Player;
 import ru.innopolis.repositories.PlayersRepository;
 
-@Service
 public class BarracksServiceImpl implements BarracksService {
 
 
@@ -17,23 +17,35 @@ public class BarracksServiceImpl implements BarracksService {
     @Override
     public String mercenaryInBarracks(Player player) {
 
-        lowHPService.lowHP(player);
+        long timeCheckin = player.getRestTime();
+        long timeNow = System.currentTimeMillis();
 
-        int bandit = player.getBandit();
-        int gold = player.getGold();
+        if (timeNow > timeCheckin + 3600000) {
 
-        if (gold >= (500 + (bandit * 50))) {
-            gold = gold - (500 + (bandit * 50));
-            bandit = bandit + 1;
+            lowHPService.lowHP(player);
 
-            player.setGold(gold);
-            player.setBandit(bandit);
+            int bandit = player.getBandit();
+            int gold = player.getGold();
 
-            playersRepository.save(player);
+            if (gold >= (500 + (bandit * 50))) {
+                gold = gold - (500 + (bandit * 50));
+                bandit = bandit + 1;
 
-            return "Поздравляем! К вам присоединился бандит!";
+                player.setGold(gold);
+                player.setBandit(bandit);
+
+                playersRepository.save(player);
+
+                return "Поздравляем! К вам присоединился бандит!";
+            } else {
+                return "Подкопи бабла";
+            }
         } else {
-            return "Подкопи бабла";
-        }
+            System.out.println("Ты все еще отдыхаешь");
     }
+
+
+        return "Поздравляю, ты нанял бойца в команду";
+    }
+
 }
