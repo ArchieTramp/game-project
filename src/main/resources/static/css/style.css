@@ -13,6 +13,18 @@ body {
     background-image: url("../images/background.jpg");
 }
 
+button {
+    background-color: #EEAA6C;
+    border: 2px solid #542019;
+    padding: 7px;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.hidden {
+    display: none;
+}
+
 .wrapper {
     display: grid;
     width: 100%;
@@ -241,4 +253,110 @@ button:hover {
     color: #4F8A10;
     background-color: #DFF2BF;
     border: 1px solid #4F8A10;
+}
+
+/*============== Авторизация ==============*/
+
+.autorization-block {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 600px;
+    height: 300px;
+    background-image: url("../images/background-window.jpg");
+    border: 3px solid #542019;
+    border-radius: 15px;
+}
+
+.autorization-form {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.autorization-title {
+    text-align: center;
+}
+
+.autorization-form fieldset {
+    border: none;
+}
+
+.autorization-form label {
+    text-transform: uppercase;
+}
+
+.autorization-form input[type="text"], .autorization-form input[type="password"] {
+    width: 100%;
+    padding: 7px;
+    box-sizing: border-box;
+    margin-top: 5px;
+    border: none;
+    outline: 1px solid #542019;
+}
+
+/*============== Регистрация ==============*/
+
+.registration-block {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 600px;
+    height: 400px;
+    background-image: url("../images/background-window.jpg");
+    border: 3px solid #542019;
+    border-radius: 15px;
+}
+
+.registration-form {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 5px;
+}
+
+.registration-title {
+    text-align: center;
+}
+
+.registration-form .registration-item {
+    border: none;
+}
+
+.registration-form .registration-item:last-child {
+    margin-top: 10px;
+}
+
+.registration-form .registration-item:last-child button {
+    margin-left: 15px;
+    margin-top: 10px;
+}
+
+.registration-form label {
+    text-transform: uppercase;
+}
+
+.registration-form input[type="text"], .registration-form input[type="password"], .registration-form input[type="email"] {
+    width: 100%;
+    padding: 7px;
+    box-sizing: border-box;
+    margin-top: 5px;
+    border: none;
+    outline: 1px solid #542019;
 }
