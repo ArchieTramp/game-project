@@ -11,7 +11,8 @@ public class LootCaravanServiceImpl implements LootCaravanService {
 
     @Autowired
     private PlayersRepository playersRepository;
-    private LevelUpByExpServiceImpl levelUpByExpService;
+    @Autowired
+    private LevelUpByExpService levelUpByExpService;
 
     @Override
     public String lootCaravan(Player player) {
@@ -27,33 +28,37 @@ public class LootCaravanServiceImpl implements LootCaravanService {
             int resultLoot = randomLoot.nextInt(21);
             int resultOfLuck = randomLuck.nextInt(20);
             int doubleLoot = resultOfLuck + luck;
+            int newGold = 0;
 
             mp = mp - 50;
             exp = exp + 10 + (50 * bandit);
             if (doubleLoot >= 20) {
-                gold = gold + (resultLoot * 2) + (10 * bandit);
-                System.out.println(player.getNickName() + " получил " + gold + "золота и " + exp
+                newGold = (resultLoot * 2) + (10 * bandit);
+                gold = gold + newGold;
+                System.out.println(player.getNickName() + " получил " + newGold + "золота и " + exp
                         + " опыта, потратив " + mp); /*в логгер*/
                 player.setMP(mp);
                 player.setExperience(exp);
                 player.setGold(gold);
-                playersRepository.save(player);
-                levelUpByExpService.levelUpByExp(player);
-            } else {
-                gold = gold + resultLoot + (10 * bandit);
-                System.out.println(player.getNickName() + " получил " + gold + "золота и " + exp
-                        + " опыта, потратив " + mp); /*в логгер*/
-                player.setMP(mp);
-                player.setExperience(exp);
-                player.setGold(gold);
-                playersRepository.save(player);
-                levelUpByExpService.levelUpByExp(player);
-            }
 
+                levelUpByExpService.levelUpByExp(player);
+                playersRepository.save(player);
+            } else {
+                newGold = resultLoot + (10 * bandit);
+                gold = gold + newGold;
+                System.out.println(player.getNickName() + " получил " + newGold + "золота и " + exp
+                        + " опыта, потратив " + mp); /*в логгер*/
+                player.setMP(mp);
+                player.setExperience(exp);
+                player.setGold(gold);
+
+                levelUpByExpService.levelUpByExp(player);
+                playersRepository.save(player);
+            }
+            return "Успешно ограбил караван! Твоя выручка " + newGold;
         } else {
             return "Нет энергии, отдохни в Салуне или приходи позже"; /*в логгер*/
         }
 
-        return "Успешно ограбил караван! Твоя выручка " + gold;
     }
 }

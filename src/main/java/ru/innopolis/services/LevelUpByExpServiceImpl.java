@@ -1,16 +1,13 @@
 package ru.innopolis.services;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.innopolis.models.Player;
-import ru.innopolis.repositories.PlayersRepository;
 
 @Service
 public class LevelUpByExpServiceImpl implements LevelUpByExpService {
 
     @Override
     public void levelUpByExp(Player player) {
-
 
         int exp = player.getExperience();
         int lvl = player.getLevel();
