@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.innopolis.models.Player;
 import ru.innopolis.repositories.PlayersRepository;
+
 import java.util.Random;
 
 @Service
@@ -13,6 +14,7 @@ public class LootCaravanServiceImpl implements LootCaravanService {
     private PlayersRepository playersRepository;
     private LevelUpByExpServiceImpl levelUpByExpService;
     private LowHPServiceImpl lowHPService;
+
 
     @Override
     public void lootCaravan(Player player) {
@@ -39,8 +41,8 @@ public class LootCaravanServiceImpl implements LootCaravanService {
                 player.setMP(mp);
                 player.setExperience(exp);
                 player.setGold(gold);
-                playersRepository.save(player);
                 levelUpByExpService.levelUpByExp(player);
+                playersRepository.save(player);
             } else {
                 gold = gold + resultLoot + (10 * bandit);
                 System.out.println(player.getNickName() + " получил " + gold + "золота и " + exp
@@ -48,8 +50,8 @@ public class LootCaravanServiceImpl implements LootCaravanService {
                 player.setMP(mp);
                 player.setExperience(exp);
                 player.setGold(gold);
-                playersRepository.save(player);
                 levelUpByExpService.levelUpByExp(player);
+                playersRepository.save(player);
             }
 
         } else {
