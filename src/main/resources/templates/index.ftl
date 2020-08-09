@@ -36,6 +36,10 @@
                     <td>EXP</td>
                     <td>${player.experience}</td>
                 </tr>
+                <tr class="specification-item">
+                    <td>Bandit</td>
+                    <td>${player.bandit}</td>
+                </tr>
 
             </table>
             <h3 class="skills">Навыки</h3>
@@ -80,6 +84,9 @@
                     <input class="action-item" type="submit" value="Нанять бойца">
                 </form>
 
+                <form action="${'/saloon'}" method="post">
+                    <input class="action-item" type="submit" value="Зайти в Saloon">
+                </form>
                 <form action="${'/exitGame'}" method="post">
                     <input class="action-item" type="submit" value="Выйти из игры">
                 </form>

@@ -13,7 +13,6 @@ import java.util.Optional;
  * @author
  */
 
-@Repository
 public interface PlayersRepository extends JpaRepository<Player, Long> {
     Player findByNickName(String nickName);
     List<Player> findAllByUser_Id(Long id);

@@ -10,6 +10,7 @@ import ru.innopolis.models.Player;
 import ru.innopolis.repositories.PlayersRepository;
 import ru.innopolis.services.BarracksService;
 import ru.innopolis.services.LootCaravanService;
+import ru.innopolis.services.SaloonService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -32,6 +33,9 @@ public class PlayerController {
 
     @Autowired
     BarracksService barracksService;
+
+    @Autowired
+    SaloonService saloonService;
 
     @GetMapping("/{playerId}")
     public String getPlayerPage(ModelMap model, @PathVariable Long playerId, HttpSession session) {
@@ -79,6 +83,16 @@ public class PlayerController {
         httpServletRequest.removeAttribute("player");
         return "redirect:/";
     }
+
+    @PostMapping("/saloon")
+    public String saloon(ModelMap model, HttpServletRequest httpServletRequest) {
+        Player player = (Player) httpServletRequest.getSession().getAttribute("player");
+        String message = saloonService.drinkingPoison(player);
+        model.addAttribute("player", player);
+        model.addAttribute("gameMessage", message);
+        return "index";
+    }
+
 
 
 }

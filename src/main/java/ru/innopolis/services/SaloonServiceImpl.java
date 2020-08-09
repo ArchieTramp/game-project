@@ -1,10 +1,13 @@
 package ru.innopolis.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import ru.innopolis.models.Player;
 import ru.innopolis.repositories.PlayersRepository;
 import ru.innopolis.services.games.gameDice.GameDice;
 
+
+@Service
 public class SaloonServiceImpl implements SaloonService {
 
     @Autowired
@@ -13,8 +16,7 @@ public class SaloonServiceImpl implements SaloonService {
     private GameDice gameDice;
 
     @Override
-    public void drinkingPoison(Player player) {
-
+    public String drinkingPoison(Player player) {
 
 
         int charisma = player.getCharisma();
@@ -36,11 +38,13 @@ public class SaloonServiceImpl implements SaloonService {
                 player.setMP(mp);
                 player.setHP(hp);
                 playersRepository.save(player);
-
+                return "Выпил";
             } else {
-                System.out.println("Перебрось");
+                return "Перебрось";
             }
         }
+        return "Luck";
     }
+
 }
 
