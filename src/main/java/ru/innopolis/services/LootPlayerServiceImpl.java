@@ -10,8 +10,11 @@ public class LootPlayerServiceImpl implements LootPlayerService {
 
     @Autowired
     private PlayersRepository playersRepository;
+    @Autowired
     private GameDice gameDice;
+    @Autowired
     private LevelUpByExpServiceImpl levelUpByExpService;
+    @Autowired
     private LowHPServiceImpl lowHPService;
 
     @Override

@@ -1,13 +1,14 @@
 package ru.innopolis.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import ru.innopolis.models.Player;
-import ru.innopolis.repositories.PlayersRepository;
 
+
+@Service
 public class LowHPServiceImpl implements LowHPService {
 
     @Autowired
-    private PlayersRepository playersRepository;
     private RestPlayerServiceImpl restPlayerService;
 
     @Override

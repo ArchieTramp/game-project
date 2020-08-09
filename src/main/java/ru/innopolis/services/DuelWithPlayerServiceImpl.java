@@ -9,8 +9,11 @@ public class DuelWithPlayerServiceImpl implements DuelWithPlayerService {
 
     @Autowired
     private PlayersRepository playersRepository;
+    @Autowired
     private GameDice gameDice;
+    @Autowired
     private LevelUpByExpServiceImpl levelUpByExpService;
+    @Autowired
     private LowHPServiceImpl lowHPService;
 
 

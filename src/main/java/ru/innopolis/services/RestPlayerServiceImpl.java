@@ -3,9 +3,11 @@ package ru.innopolis.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Service;
 import ru.innopolis.models.Player;
 import ru.innopolis.repositories.PlayersRepository;
 
+@Service
 @EnableScheduling
 public class RestPlayerServiceImpl implements RestPlayerService {
 

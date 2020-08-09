@@ -9,6 +9,7 @@ public class SaloonServiceImpl implements SaloonService {
 
     @Autowired
     private PlayersRepository playersRepository;
+    @Autowired
     private GameDice gameDice;
 
     @Override

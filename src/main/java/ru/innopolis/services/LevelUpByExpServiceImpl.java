@@ -26,10 +26,6 @@ public class LevelUpByExpServiceImpl implements LevelUpByExpService {
             int hp = 50 + (50 * lvl) + (str * 25);
             int mp = 50 + (25 * lvl) + (charisma * 25);
 
-            if (lvl == 20) {
-                System.out.println("вы победили, 20 уровень ваш! Хотите продолжать игру - создайте нового персонажа, удачи!");
-            }
-
             player.setHP(hp);
             player.setMP(mp);
             player.setLevel(lvl);
