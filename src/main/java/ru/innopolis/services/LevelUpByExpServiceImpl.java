@@ -1,19 +1,15 @@
 package ru.innopolis.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import ru.innopolis.models.Player;
 import ru.innopolis.repositories.PlayersRepository;
 
+@Service
 public class LevelUpByExpServiceImpl implements LevelUpByExpService {
-
-    @Autowired
-    private PlayersRepository playersRepository;
 
     @Override
     public void levelUpByExp(Player player) {
-
-        playersRepository.findByNickName(player.getNickName());
-
         int exp = player.getExperience();
         int lvl = player.getLevel();
         int str = player.getStrength();
@@ -37,7 +33,6 @@ public class LevelUpByExpServiceImpl implements LevelUpByExpService {
             player.setLevel(lvl);
             player.setExperience(exp);
 
-            playersRepository.save(player);
         } else {
             System.out.println("мало опыта, качайся");
         }
