@@ -1,34 +1,41 @@
 <#ftl encoding='UTF-8'>
-<html>
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <link href="/css/styles.css" rel="stylesheet" type="text/css">
-    <link href="/css/bootstrap.min.css" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Выбор игрока</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<div class="form-style-2-heading">Имя пользователя: ${user.firstName}</div>
-<div class="form-style-2-heading">Фамилия пользователя: ${user.lastName}</div>
-<div class="form-style-2">Доступные игровые персонажи пользователя:
-    <div class="form-style-2-heading">
-        <#if players??>
-            <#list players as player>
-                <tr>
-                    <br>
-                    <td>${player.nickName}</td>
-                    <td><a href="${'/' + player.id}">Выбрать игрока</a></td>
-                    <br>
-                </tr>
-            <#else>
-                Нет доступных игроков
-            </#list>
-        </#if>
-    </div>
+
+<div class="profile-block">
+    <h1 class="profile-title">Добро пожаловать, ${user.lastName} ${user.firstName}!</h1>
+    <form class="profile-form">
+        <fieldset class="profile-item">
+            <label for="players">Доступные игровые персонажи пользователя</label>
+        </fieldset>
+        <fieldset class="profile-item">
+                <#if players??>
+                    <#list players as player>
+                            <tr><p>
+                                <td>${player.nickName}</td>
+                                <td><button type="submit" formaction="${'/' + player.id}">Выбрать игрока</button></td>
+                                </p>
+                            </tr>
+                    <#else>
+                        <br>Нет доступных игроков
+                    </#list>
+                </#if>
+
+        </fieldset>
+        <fieldset class="profile-item">
+            <button type="submit" formmethod="get" formaction="/creatplayer">Создать игрового персонажа</button>
+            <button type="submit" formmethod="get" formaction="/users">Для администратора</button>
+            <button type="submit" formmethod="get" formaction="/logout">Выход</button>
+        </fieldset>
+    </form>
 </div>
-<a href="/creatplayer">Создать игрового персонажа</a>
-<p></p>
-<a href="/users">Для администратора</a>
-<p></p>
-<#--<a href="/start">Начать игру</a>-->
-<#--<p></p>-->
-<a href="/logout">Выход</a>
+
 </body>
 </html>
