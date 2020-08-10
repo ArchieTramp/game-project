@@ -1,57 +1,62 @@
 <#ftl encoding='UTF-8'>
-<html>
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <link href="/css/styles.css" rel="stylesheet">
-    <link href="/css/bootstrap.min.css" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<div class="form-style-2">
-    <div class="form-style-2-heading">
-        Зарегистрируйтесь!
-    </div>
-    <form method="post" action="/signup">
-        <label for="login">Логин
-            <input class="input-field" type="text" id="login" name="login">
-            <#if message??>
-                <div class="alert alert-danger" role="alert">${message}</div>
-            </#if>
-            <#if messageLogin??>
-                <div class="alert alert-danger" role="alert">${messageLogin}</div>
-            </#if>
-        </label>
-        <br>
-        <label for="password">Пароль
-            <input class="input-field" type="password" id="password" name="password">
-            <#if message??>
-                <div class="alert alert-danger" role="alert">${message}</div>
-            </#if>
-        </label>
-        <br>
-        <label for="first-name">Имя
-            <input class="input-field" id="first-name" name="firstName">
-            <#if message??>
-                <div class="alert alert-danger" role="alert">${message}</div>
-            </#if>
-            <#if messageFirstName??>
-                <div class="alert alert-danger" role="alert">${messageFirstName}</div>
-            </#if>
-        </label>
-        <br>
-        <label for="last-name">Фамилия
-            <input class="input-field" id="last-name" name="lastName">
-            <#if message??>
-                <div class="alert alert-danger" role="alert">${message}</div>
-            </#if>
-        </label>
-        <br>
-        <label for="remember-me">
-            <input type="checkbox" id="remember-me" name="remember-me">Запомнить меня</label>
-        <input type="submit" value="Зарегистрироваться">
-        <br>
-    </form>
-    <form method="get" action="/login">
-        <input type="submit" value="Авторизоваться">
+
+<div class="registration-block">
+    <h1 class="registration-title">Зарегистрируйтесь</h1>
+    <form class="registration-form">
+        <fieldset class="registration-item">
+            <label for="login">Логин
+                <input type="text" name="login">
+                <#if message??>
+                    <div class="alert alert-danger" role="alert">${message}</div>
+                </#if>
+                <#if messageLogin??>
+                    <div class="alert alert-danger" role="alert">${messageLogin}</div>
+                </#if>
+            </label>
+        </fieldset>
+        <fieldset class="registration-item">
+            <label for="password">Пароль
+                <input type="password" name="password">
+                <#if message??>
+                    <div class="alert alert-danger" role="alert">${message}</div>
+                </#if>
+            </label>
+        </fieldset>
+        <fieldset class="registration-item">
+            <label for="first-name">Имя
+                <input type="text" id="first-name" name="firstName">
+                <#if message??>
+                    <div class="alert alert-danger" role="alert">${message}</div>
+                </#if>
+                <#if messageFirstName??>
+                    <div class="alert alert-danger" role="alert">${messageFirstName}</div>
+                </#if>
+            </label>
+        </fieldset>
+        <fieldset class="registration-item">
+            <label for="last-name">Фамилия
+                <input type="text" id="last-name" name="lastName">
+                <#if message??>
+                    <div class="alert alert-danger" role="alert">${message}</div>
+                </#if>
+            </label>
+        </fieldset>
+        <fieldset class="registration-item">
+            <input type="checkbox" id="remember-me" name="remember-me">Запомнить меня
+            <button type="submit" formmethod="post" formaction="/signup">Зарегистрироваться</button>
+            <button type="submit" formmethod="get" formaction="/login">Авторизоваться</button>
+        </fieldset>
     </form>
 </div>
+
 </body>
 </html>
