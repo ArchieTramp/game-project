@@ -18,11 +18,11 @@
         <fieldset class="profile-item">
                 <#if players??>
                     <#list players as player>
-                            <tr><p>
-                                <td>${player.nickName}</td>
-                                <td><button type="submit" formaction="${'/' + player.id}">Выбрать игрока</button></td>
-                                </p>
-                            </tr>
+                        <tr><p>
+                            <td>${player.nickName}</td>
+                            <td><button type="submit" formaction="${'/' + player.id}">Выбрать игрока</button></td>
+                            </p>
+                        </tr>
                     <#else>
                         <br>Нет доступных игроков
                     </#list>

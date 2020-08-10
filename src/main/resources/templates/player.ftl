@@ -1,53 +1,58 @@
-<html>
+<#ftl encoding='UTF-8'>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Title</title>
-    <link href="/css/styles.css" rel="stylesheet" type="text/css">
-    <link href="/css/bootstrap.min.css" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Персонаж</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-<div class="form-style-2">
-    <div class="form-style-2-heading">
-        Игрок
-    </div>
-    <table>
-        <table border="0">
-            <tr>
-                <td>Id</td>
-                <td>:</td>
-                <td>${player.id}</td>
-            </tr>
-            <tr>
-                <td>NickName</td>
-                <td>:</td>
-                <td>${player.nickName}</td>
-            </tr>
-            <tr>
-                <td>Level</td>
-                <td>:</td>
-                <td>${player.level}</td>
-            </tr>
-            <tr>
-                <#if player.bandit ??>
-                    <td>Banditos</td>
-                    <td>:</td>
+<div class="player-block">
+    <h1 class="player-title">Информацию по персонажу ${player.nickName}</h1>
+    <form class="player-form">
+        <fieldset class="player-item">
+            <table class="player-specifications">
+                <tr class="player-specifications-item">
+                    <td>Уровень</td>
+                    <td>Золото</td>
+                    <td>HP</td>
+                    <td>MP</td>
+                    <td>Бандиты</td>
+                </tr>
+                <tr class="player-specifications-item">
+                    <td>${player.level}</td>
+                    <td>${player.gold}</td>
+                    <td>${player.HP}</td>
+                    <td>${player.MP}</td>
                     <td>${player.bandit}</td>
-                <#else>
-                    <td>Нет доступных бандитов</td>
-                </#if>
-
-            </tr>
-        </table>
-
-        <br/><br/>
-
-        <form action="${'/start'}" method="get">Начать игру <input type="submit" value="Yes?"/></form>
-        <form action="${'/creatplayer/delete'}" method="post">Удалить игрока <input type="submit" value="Delete?"/></form>
-
+                </tr>
+            </table>
+        </fieldset>
+        <fieldset class="player-item">
+            <table class="player-specifications">
+                <tr class="player-specifications-item">
+                    <td>INT</td>
+                    <td>STR</td>
+                    <td>CHAR</td>
+                    <td>LUCK</td>
+                </tr>
+                <tr class="player-specifications-item">
+                    <td>${player.intelligence}</td>
+                    <td>${player.strength}</td>
+                    <td>${player.charisma}</td>
+                    <td>${player.luck}</td>
+                </tr>
+            </table>
+        </fieldset>
+        <fieldset class="registration-item">
+            <button type="submit" formmethod="get" formaction="/start">Начать игру</button>
+            <button type="submit" formmethod="post" formaction="/creatplayer/delete">Удалить игрока</button>
+            <button type="submit" formmethod="get" formaction="/">Вернуться</button>
+        </fieldset>
+    </form>
 </div>
-
-<a href="/">Вернуться на главную страницу</a>
 
 </body>
 </html>

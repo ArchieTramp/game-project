@@ -431,3 +431,52 @@ button:hover {
     border: none;
     outline: 1px solid #542019;
 }
+
+/*============== Страница старта/удаления персонажа ==============*/
+
+.player-block {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 600px;
+    height: 300px;
+    background-image: url("../images/background-window.jpg");
+    border: 3px solid #542019;
+    border-radius: 15px;
+}
+
+.player-form {
+    position: absolute;
+    right: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.player-title {
+    text-align: center;
+}
+
+.player-form fieldset {
+    border: none;
+}
+
+.player-form label {
+    text-transform: uppercase;
+}
+
+.player-specifications {
+    margin-top: 10px;
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 100%;
+}
+.player-specifications td {
+    border: 2px solid #542019;
+    padding: 5px;
+    background-color: #EEAA6C;
+}
