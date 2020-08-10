@@ -20,7 +20,7 @@ public class LowHPServiceImpl implements LowHPService {
         int hpMax = 50 + (50 * lvl) + (str * 25);
         int hpParametr = (int) (hpMax * 0.15);
 
-        if (hp <= hpParametr) {
+        if (hp < hpParametr) {
             restPlayerService.restPlayer(player);
         }
 
