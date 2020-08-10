@@ -59,7 +59,7 @@ public class PlayerController {
         String message = (String) httpServletRequest.getSession().getAttribute("gameMessage");
         model.addAttribute("gameMessage", message);
         if (model.getAttribute("gameMessage") == null) {
-            model.addAttribute("gameMessage", "Hello cowboy!");
+            model.addAttribute("gameMessage", "Приветствую тебя, ковбой!!");
         }
         return "index";
     }
