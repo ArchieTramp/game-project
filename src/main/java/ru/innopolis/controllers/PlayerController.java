@@ -44,7 +44,6 @@ public class PlayerController {
     DuelWithPlayerService duelWithPlayerService;
 
 
-
     @GetMapping("/{playerId}")
     public String getPlayerPage(ModelMap model, @PathVariable Long playerId, HttpSession session) {
         Player player = playersRepository.findById(playerId).get();
@@ -57,7 +56,11 @@ public class PlayerController {
     public String getStartPage(ModelMap model, HttpServletRequest httpServletRequest) {
         Player player = (Player) httpServletRequest.getSession().getAttribute("player");
         model.addAttribute("player", player);
-        model.addAttribute("gameMessage", "Hello cowboy!");
+        String message = (String) httpServletRequest.getSession().getAttribute("gameMessage");
+        model.addAttribute("gameMessage", message);
+        if (model.getAttribute("gameMessage") == null) {
+            model.addAttribute("gameMessage", "Hello cowboy!");
+        }
         return "index";
     }
 
@@ -111,18 +114,15 @@ public class PlayerController {
     }
 
     @RequestMapping("/start/players/{playerId}")
-    public String duel(ModelMap model, @PathVariable Long playerId, HttpServletRequest httpServletRequest) {
-
+    public String duel(ModelMap model, @PathVariable Long playerId, HttpServletRequest httpServletRequest, HttpSession session) {
         Player player2 = playersRepository.findById(playerId).get();
         Player player = (Player) httpServletRequest.getSession().getAttribute("player");
         model.addAttribute("player2", player2);
         model.addAttribute("player", player);
         duelWithPlayerService.duelWithPlayer(player, player2);
         String message = saloonService.drinkingPoison(player);
-        model.addAttribute("gameMessage", message);
-//        httpServletRequest.setAttribute("gameMessage", message);
-
+        session.setAttribute("gameMessage", message);
         return "redirect:/start";
-//        return "index";
+
     }
 }

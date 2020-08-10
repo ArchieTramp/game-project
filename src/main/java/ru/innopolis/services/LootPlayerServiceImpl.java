@@ -1,12 +1,12 @@
 package ru.innopolis.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import ru.innopolis.models.Player;
-import ru.innopolis.models.User;
 import ru.innopolis.repositories.PlayersRepository;
 import ru.innopolis.services.games.gameDice.GameDice;
 
+@Service
 public class LootPlayerServiceImpl implements LootPlayerService {
 
     @Autowired
@@ -19,7 +19,7 @@ public class LootPlayerServiceImpl implements LootPlayerService {
     private LowHPService lowHPService;
 
     @Override
-    public void lootPlayer(Player player, Player player1) {
+    public String lootPlayer(Player player, Player player1) {
 
         long timeCheckin = player.getRestTime();
         long timeNow = System.currentTimeMillis();
@@ -68,15 +68,19 @@ public class LootPlayerServiceImpl implements LootPlayerService {
                         levelUpByExpService.levelUpByExp(player);
                     } else {
                         System.out.println("Перебросить бы, а то маловато будет");
+                        return "Перебросить бы, а то маловато будет";
                     }
                 }
             } else {
                 System.out.println("Мало энергии");
+                return "Мало энергии";
             }
 
         } else {
             System.out.println("Ты все еще отдыхаешь");
+            return "Мало энергии";
         }
+        return "Fuck";
     }
 }
 
