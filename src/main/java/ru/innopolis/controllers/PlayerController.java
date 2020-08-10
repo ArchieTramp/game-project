@@ -9,10 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ru.innopolis.models.Player;
 import ru.innopolis.repositories.PlayersRepository;
-import ru.innopolis.services.BarracksService;
-import ru.innopolis.services.DuelWithPlayerService;
-import ru.innopolis.services.LootCaravanService;
-import ru.innopolis.services.SaloonService;
+import ru.innopolis.services.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -42,6 +39,9 @@ public class PlayerController {
 
     @Autowired
     DuelWithPlayerService duelWithPlayerService;
+
+    @Autowired
+    LootPlayerService lootPlayerService;
 
 
     @GetMapping("/{playerId}")
@@ -117,12 +117,27 @@ public class PlayerController {
     public String duel(ModelMap model, @PathVariable Long playerId, HttpServletRequest httpServletRequest, HttpSession session) {
         Player player2 = playersRepository.findById(playerId).get();
         Player player = (Player) httpServletRequest.getSession().getAttribute("player");
-        model.addAttribute("player2", player2);
-        model.addAttribute("player", player);
-        duelWithPlayerService.duelWithPlayer(player, player2);
-        String message = saloonService.drinkingPoison(player);
+        String message = duelWithPlayerService.duelWithPlayer(player, player2);
         session.setAttribute("gameMessage", message);
         return "redirect:/start";
 
     }
+    @RequestMapping("/lootplayers")
+    public String selectPlayerToLoot(ModelMap model, HttpServletRequest httpServletRequest) {
+        List<Player> players = playersRepository.findAll();
+        Player player = (Player) httpServletRequest.getSession().getAttribute("player");
+        model.addAttribute("player", player);
+        model.addAttribute("players", players);
+        return "selectplayerloot";
+    }
+
+    @RequestMapping("/lootplayer/{playerId}")
+    public String lootPlayer(ModelMap model, @PathVariable Long playerId, HttpServletRequest httpServletRequest, HttpSession session) {
+        Player player2 = playersRepository.findById(playerId).get();
+        Player player = (Player) httpServletRequest.getSession().getAttribute("player");
+        String message = lootPlayerService.lootPlayer(player, player2);
+        session.setAttribute("gameMessage", message);
+        return "redirect:/start";
+    }
+
 }

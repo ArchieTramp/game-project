@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import ru.innopolis.models.Player;
 import ru.innopolis.repositories.PlayersRepository;
+
 import java.util.Random;
 
 @Service
@@ -67,8 +68,7 @@ public class LootCaravanServiceImpl implements LootCaravanService {
             }
 
         } else {
-            System.out.println("Ты все еще отдыхаешь");
+            return "Ты все еще отдыхаешь";
         }
-        return "Караван ограблен";
     }
 }

@@ -98,8 +98,8 @@
                 <form action="${'/saloon'}" method="post">
                     <input class="action-item" type="submit" value="Зайти в Saloon">
                 </form>
-                <form action="${'/saloon'}" method="post">
-                    <input class="action-item" type="submit" value="Зайти в Saloon">
+                <form action="${'/lootplayers'}" method="post">
+                    <input class="action-item" type="submit" value="Ограбить игрока">
                 </form>
                 <form action="${'/start/players'}" method="post">
                     <input class="action-item" type="submit" value="Вызвать на дуэль">

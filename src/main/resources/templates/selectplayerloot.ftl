@@ -9,7 +9,7 @@
 
 <div class="form-style-2">
     <div class="form-style-2-heading">
-        Противник
+        Жертва
     </div>
     <table>
         <tr>
@@ -19,13 +19,12 @@
         </tr>
         <#list players as player2>
             <#if player2.id != player.id>
-
             <tr>
                     <br>
                     <td>${player2.nickName}</td>
                     <td>${player2.level}</td>
-                <td><form action="${'/start/players/' + player2.id}" method="post">
-                    <input class="action-item" type="submit" value="Зарубиться">
+                <td><form action="${'/lootplayer/' + player2.id}" method="post">
+                    <input class="action-item" type="submit" value="Ограбить">
                 </form></td>
                     <br>
 <#--                </form>-->

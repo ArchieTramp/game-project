@@ -67,20 +67,16 @@ public class LootPlayerServiceImpl implements LootPlayerService {
                         playersRepository.save(player1);
                         levelUpByExpService.levelUpByExp(player);
                     } else {
-                        System.out.println("Перебросить бы, а то маловато будет");
                         return "Перебросить бы, а то маловато будет";
                     }
                 }
             } else {
-                System.out.println("Мало энергии");
                 return "Мало энергии";
             }
-
         } else {
-            System.out.println("Ты все еще отдыхаешь");
             return "Мало энергии";
         }
-        return "Fuck";
+        return "Неудача";
     }
 }
 
