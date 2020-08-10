@@ -18,12 +18,14 @@ public class BarracksServiceImpl implements BarracksService {
     @Override
     public String mercenaryInBarracks(Player player) {
 
+        lowHPService.lowHP(player);
+
         long timeCheckin = player.getRestTime();
         long timeNow = System.currentTimeMillis();
 
         if (timeNow > timeCheckin + 3600000) {
 
-            lowHPService.lowHP(player);
+
 
             int bandit = player.getBandit();
             int gold = player.getGold();

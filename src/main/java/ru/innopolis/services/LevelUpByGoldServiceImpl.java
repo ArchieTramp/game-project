@@ -16,12 +16,14 @@ public class LevelUpByGoldServiceImpl implements LevelUpByGoldService {
     @Override
     public String levelUp(Player player) {
 
+        lowHPService.lowHP(player);
+
         long timeCheckin = player.getRestTime();
         long timeNow = System.currentTimeMillis();
 
         if (timeNow > timeCheckin + 3600000) {
 
-            lowHPService.lowHP(player);
+
 
             int gold = player.getGold();
             int exp = player.getExperience();

@@ -15,9 +15,13 @@ public class LootCaravanServiceImpl implements LootCaravanService {
     private PlayersRepository playersRepository;
     @Autowired
     private LevelUpByExpService levelUpByExpService;
+    @Autowired
+    private LowHPService lowHPService;
 
     @Override
     public String lootCaravan(Player player) {
+
+        lowHPService.lowHP(player);
 
         long timeCheckin = player.getRestTime();
         long timeNow = System.currentTimeMillis();

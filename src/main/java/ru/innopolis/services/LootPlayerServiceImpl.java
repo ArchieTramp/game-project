@@ -21,11 +21,13 @@ public class LootPlayerServiceImpl implements LootPlayerService {
     @Override
     public String lootPlayer(Player player, Player player1) {
 
+        lowHPService.lowHP(player);
+
         long timeCheckin = player.getRestTime();
         long timeNow = System.currentTimeMillis();
 
         if (timeNow > timeCheckin + 3600000) {
-            lowHPService.lowHP(player);
+
             int mp = player.getMP();
             int exp = player.getExperience();
             int luck = player.getLuck();
