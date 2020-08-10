@@ -39,14 +39,12 @@ public class BarracksServiceImpl implements BarracksService {
 
                 return "Поздравляем! К вам присоединился бандит!";
             } else {
-                return "Подкопи бабла";
+                return "Эй, ковбой, без золота тебе здесь делать нечего!";
             }
         } else {
-            System.out.println("Ты все еще отдыхаешь");
-    }
+            return "Оу ковбой, ты устал ведь, посиди отдохни у костра, а потом приходи";
+        }
 
-
-        return "Поздравляю, ты нанял бойца в команду";
     }
 
 }

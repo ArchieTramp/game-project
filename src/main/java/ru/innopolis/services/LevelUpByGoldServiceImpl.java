@@ -1,7 +1,6 @@
 package ru.innopolis.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import ru.innopolis.models.Player;
 import ru.innopolis.repositories.PlayersRepository;
 
@@ -15,7 +14,7 @@ public class LevelUpByGoldServiceImpl implements LevelUpByGoldService {
     private LowHPService lowHPService;
 
     @Override
-    public void levelUp(Player player) {
+    public String levelUp(Player player) {
 
         long timeCheckin = player.getRestTime();
         long timeNow = System.currentTimeMillis();
@@ -35,17 +34,20 @@ public class LevelUpByGoldServiceImpl implements LevelUpByGoldService {
                 player.setGold(gold);
                 player.setLevel(exp);
 
+                levelUpByExpService.levelUpByExp(player);
+
                 playersRepository.save(player);
 
-                levelUpByExpService.levelUpByExp(player);
+
+                return "Ты получил немного опыта, а опыт не пропьешь!";
 
 
             } else {
-                System.out.println("Мало золота");
+                return "Я не буду учить тебя бесплатно, подкопи золотишка и приходи";
             }
 
         } else {
-            System.out.println("Ты все еще отдыхаешь");
+            return "Друг ты устал, проспись а потом приходи!";
         }
     }
 }

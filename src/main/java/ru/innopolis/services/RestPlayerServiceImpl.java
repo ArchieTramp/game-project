@@ -12,7 +12,7 @@ public class RestPlayerServiceImpl implements RestPlayerService {
     private final PlayersRepository playersRepository;
 
     @Override
-    public void restPlayer(Player player) {
+    public String restPlayer(Player player) {
 
 
         int lvl = player.getLevel();
@@ -25,6 +25,8 @@ public class RestPlayerServiceImpl implements RestPlayerService {
         player.setRestTime(time);
 
         playersRepository.save(player);
+
+        return "Не важно что привело тебя в корчму, отдохни, а то на Западе всякое бывает";
     }
 }
 

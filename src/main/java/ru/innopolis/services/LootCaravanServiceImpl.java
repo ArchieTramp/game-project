@@ -42,33 +42,34 @@ public class LootCaravanServiceImpl implements LootCaravanService {
                 if (doubleLoot >= 20) {
                     newGold = (resultLoot * 2) + (10 * bandit);
                     gold = gold + newGold;
-                    System.out.println(player.getNickName() + " получил " + newGold + "золота и " + exp
-                            + " опыта, потратив " + mp); /*в логгер*/
+
                     player.setMP(mp);
                     player.setExperience(exp);
                     player.setGold(gold);
 
                     levelUpByExpService.levelUpByExp(player);
                     playersRepository.save(player);
+
+
                 } else {
                     newGold = resultLoot + (10 * bandit);
                     gold = gold + newGold;
-                    System.out.println(player.getNickName() + " получил " + newGold + "золота и " + exp
-                            + " опыта, потратив " + mp); /*в логгер*/
+
                     player.setMP(mp);
                     player.setExperience(exp);
                     player.setGold(gold);
 
                     levelUpByExpService.levelUpByExp(player);
                     playersRepository.save(player);
+
                 }
-                return "Успешно ограбил караван! Твоя выручка " + newGold;
+                return "Успешное ограбление каравана! Твоя выручка " + newGold;
             } else {
-                return "Нет энергии, отдохни в Салуне или приходи позже"; /*в логгер*/
+                return "Ковбой, ты устал, отдохни или выпей в Салуне";
             }
 
         } else {
-            return "Ты все еще отдыхаешь";
+            return "Караван ты не догонишь, ты ведь еще даже не отдохнул";
         }
     }
 }

@@ -63,20 +63,22 @@ public class LootPlayerServiceImpl implements LootPlayerService {
 
                         player1.setGold(gold1);
 
+                        levelUpByExpService.levelUpByExp(player);
                         playersRepository.save(player);
                         playersRepository.save(player1);
-                        levelUpByExpService.levelUpByExp(player);
+                        return "Ты успешно ограбил " + player1.getNickName() + " на " + gold + "золота!";
+
                     } else {
-                        return "Перебросить бы, а то маловато будет";
+                        return "Перебросить бы, а то маловато выбросил";
                     }
                 }
             } else {
-                return "Мало энергии";
+                return "Мало энергии, отдохнуть бы тебе или выпить в Салуне";
             }
         } else {
-            return "Мало энергии";
+            return "Да ты же отдыхаешь, ковбой! Приходи позже!";
         }
-        return "Неудача";
+        return "Грабить других ребят всегда приятно!";
     }
 }
 

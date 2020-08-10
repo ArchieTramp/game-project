@@ -28,8 +28,7 @@ public class LevelUpByExpServiceImpl implements LevelUpByExpService {
             player.setLevel(lvl);
             player.setExperience(exp);
 
-        } else {
-            System.out.println("мало опыта, качайся");
         }
+
     }
 }

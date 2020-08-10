@@ -46,15 +46,17 @@ public class SaloonServiceImpl implements SaloonService {
                     player.setHP(hp);
                     player.setSaloonTime(time);
                     playersRepository.save(player);
-                    return "Выпил";
+                    return "Выпей друг, тяжела дорога искателя приключений";
                 } else {
-                    return "Перебрось";
+                    long time = System.currentTimeMillis();
+                    player.setSaloonTime(time);
+                    return "Ты пьян уже? Приходи через часик, ковбой!";
                 }
             }
         } else {
-            return "Рановато, приходи позже";
+            return "Рановато ты за выпивкой, приходи позже";
         }
-        return "Fuck";
+        return "В салуне всегда рады тебе, ковбой";
 
     }
 }

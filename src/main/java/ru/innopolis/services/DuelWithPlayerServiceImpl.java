@@ -69,27 +69,28 @@ public class DuelWithPlayerServiceImpl implements DuelWithPlayerService {
 
                         player1.setHP(hp1);
 
+                        levelUpByExpService.levelUpByExp(player);
+
                         playersRepository.save(player);
                         playersRepository.save(player1);
 
-                        levelUpByExpService.levelUpByExp(player);
+                        return "Отличный выстрел ковбой! Ты снес ему " + hp1 + " здоровья";
 
                     } else {
-                        System.out.println("Перебросить бы, а то маловато будет");
-                        return "Перебросить бы, а то маловато будет";
+
+                        return "Неудача тоже опыт, ковбой! Пробуй еще!";
                     }
                 }
             } else {
-                System.out.println("Мало энергии");
-                return "Мало энергии";
+
+                return "Кто идет в бой уставший? Или трезвый? Отдохни или выпей!";
             }
         }
         else {
-            System.out.println("Ты все еще отдыхаешь");
-            return "Ты все еще отдыхаешь";
+            return "Ну и куда ты? Отдохни до конца, а потом в бой!";
         }
 
-        return "";
+       return "Дуэль дело такое, сегодня ты, завтра тебя!";
     }
 }
 
