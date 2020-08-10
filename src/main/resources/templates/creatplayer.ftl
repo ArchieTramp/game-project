@@ -13,7 +13,7 @@
     <h1 class="autorization-title">Создание игрока</h1>
     <form class="autorization-form">
         <fieldset class="autorization-item">
-            <label for="login">Никнейм персонажа
+            <label for="nick-name">Никнейм персонажа
                 <input type="text" id="nick-name" name="nickName">
                 <#if message??>
                     <div class="alert alert-danger" role="alert">${message}</div>
