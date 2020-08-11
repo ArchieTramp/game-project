@@ -132,24 +132,23 @@
     </div>
     <div class="chat">
         <div class="chat-window">
-            <h2 class="chat-title">Чат</h2>
             <div class="messages">
                 <div class="message-items"></div>
                 <form id="message-form" class="message-form">
                     <input type="text" class="chat-input" name="chat">
                     <button id="message-send" class="message-send">
-                        <img src="images/message-button.png" width="100%" height="100%">
+                        <img src="images/message-button.png" width="30%" height="30%">
                     </button>
                 </form>
             </div>
         </div>
     </div>
-    <div class="events">
+    <#--<div class="events">
         <div class="event-window">
             <h2 class="event-title">События</h2>
             <div class="event-items"></div>
         </div>
-    </div>
+    </div>-->
 </div>
 
 </body>
