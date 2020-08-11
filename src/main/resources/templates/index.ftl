@@ -42,7 +42,7 @@
                 </tr>
 
             </table>
-            <h3 class="skills">Навыки</h3>
+            <h3 class="skills">Навыки (${player.point})</h3>
             <table class="specifications">
                 <tr class="specification-item">
                     <td>Интеллект</td>
