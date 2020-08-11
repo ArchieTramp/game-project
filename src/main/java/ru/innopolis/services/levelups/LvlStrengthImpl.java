@@ -28,8 +28,11 @@ public class LvlStrengthImpl implements LvlStrength {
 
             player.setPoint(point);
 
-        playersRepository.save(player);
-        return "Подкачался";
+            playersRepository.save(player);
 
+            return "Подкачался";
+
+        }
+        return "Подкачался";
     }
 }

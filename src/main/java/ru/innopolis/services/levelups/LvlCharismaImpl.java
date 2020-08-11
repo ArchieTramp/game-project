@@ -16,25 +16,24 @@ public class LvlCharismaImpl implements LvlCharisma {
     public String lvlCharisma(Player player) {
 
 
-    int charisma = player.getCharisma();
-    int point = player.getPoint();
+        int charisma = player.getCharisma();
+        int point = player.getPoint();
 
-    if (point > 0) {
+        if (point > 0) {
 
-        charisma = charisma + 1;
+            charisma = charisma + 1;
 
-        point = point - 1;
+            point = point - 1;
 
-        player.setCharisma(charisma);
+            player.setCharisma(charisma);
 
-        player.setPoint(point);
+            player.setPoint(point);
 
-    playersRepository.save(player);
+            playersRepository.save(player);
 
+            return "Харизма повышена";
 
-
-
-
-    }
+        }
         return "Харизма повышена";
+    }
 }

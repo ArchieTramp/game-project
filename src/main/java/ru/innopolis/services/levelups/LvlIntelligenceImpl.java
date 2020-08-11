@@ -28,9 +28,9 @@ public class LvlIntelligenceImpl implements LvlIntelligence {
             player.setPoint(point);
 
             playersRepository.save(player);
-        }
-        playersRepository.save(player);
-        return "Поумнел, поздравляю";
 
+            return "Поумнел, поздравляю";
+        }
+        return "Поумнел, поздравляю";
     }
 }

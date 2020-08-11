@@ -28,9 +28,10 @@ public class LvlLuckImpl implements LvlLuck {
             player.setPoint(point);
 
             playersRepository.save(player);
-        }
-        playersRepository.save(player);
-        return "Поздравляю, удачливый Вы наш";
 
+            return "Поздравляю, удачливый Вы наш";
+
+        }
+        return "Поздравляю, удачливый Вы наш";
     }
 }
