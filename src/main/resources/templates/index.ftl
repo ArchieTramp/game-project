@@ -61,6 +61,19 @@
                     <td>${player.luck}</td>
                 </tr>
             </table>
+            <h3 class="skills">При повышении уровня</h3>
+            <form action="${'/lvlcharisma'}" method="post">
+                <input class="action-item" type="submit" value="Повысить уровень коммуникации">
+            </form>
+            <form action="${'/lvlintelligence'}" method="post">
+                <input class="action-item" type="submit" value="Подучиться">
+            </form>
+            <form action="${'/lvlluck'}" method="post">
+                <input class="action-item" type="submit" value="Поднять карму">
+            </form>
+            <form action="${'/lvlstrength'}" method="post">
+                <input class="action-item" type="submit" value="Подкачаться">
+            </form>
         </div>
     </div>
     <div class="game">
@@ -68,20 +81,6 @@
             <#if gameMessage??>
                 <h2>${gameMessage}</h2>
             </#if>
-<#--            <#if players??>-->
-<#--                <#list players as player2>-->
-<#--                    <tr>-->
-<#--                        <form method="post" action="/users">-->
-<#--                            <br>-->
-<#--                            <td>${player2.nickName}</td>-->
-<#--                            <td>-->
-<#--                                <a href="${'/start/players'}">Вызвать этого игрока</a>-->
-<#--                            </td>-->
-<#--                            <br>-->
-<#--                        </form>-->
-<#--                    </tr>-->
-<#--                </#list>-->
-<#--            </#if>-->
         </div>
     </div>
     <div class="actions">
@@ -94,7 +93,6 @@
                 <form action="${'/mercenary'}" method="post">
                     <input class="action-item" type="submit" value="Нанять бойца">
                 </form>
-
                 <form action="${'/saloon'}" method="post">
                     <input class="action-item" type="submit" value="Зайти в Saloon">
                 </form>
@@ -104,11 +102,18 @@
                 <form action="${'/start/players'}" method="post">
                     <input class="action-item" type="submit" value="Вызвать на дуэль">
                 </form>
+                <form action="${'/rest'}" method="post">
+                    <input class="action-item" type="submit" value="Отдохнуть">
+                </form>
+                <form action="${'/levupbygold'}" method="post">
+                    <input class="action-item" type="submit" value="Заплатить деньгами за опыт">
+                </form>
+<#--                <form action="${'/levupbyexp'}" method="post">-->
+<#--                    <input class="action-item" type="submit" value="Повысить навыки">-->
+<#--                </form>-->
                 <form action="${'/exitGame'}" method="post">
                     <input class="action-item" type="submit" value="Выйти из игры">
                 </form>
-
-
                 <#--                <li class="action-item" data-eventMessage="aggressive"><a href="#" data-eventMessage="aggressive">Ограбить караван</a></li>-->
                 <#--                    <li class="action-item" data-eventMessage="aggressive"><a href="#" data-eventMessage="aggressive">Ограбить-->
                 <#--                            игрока</a></li>-->

@@ -2,6 +2,7 @@ package ru.innopolis.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,11 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import ru.innopolis.models.Player;
 import ru.innopolis.repositories.PlayersRepository;
 import ru.innopolis.services.*;
+import ru.innopolis.services.levelups.LvlCharisma;
+import ru.innopolis.services.levelups.LvlIntelligence;
+import ru.innopolis.services.levelups.LvlLuck;
+import ru.innopolis.services.levelups.LvlStrength;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
-
 
 /**
  * PlayerController
@@ -43,9 +47,26 @@ public class PlayerController {
     @Autowired
     LootPlayerService lootPlayerService;
 
+    @Autowired
+    RestPlayerService restPlayerService;
+
+    @Autowired
+    LevelUpByGoldService levelUpByGoldService;
+
+    @Autowired
+    LvlCharisma lvlCharisma;
+
+    @Autowired
+    LvlIntelligence lvlIntelligence;
+
+    @Autowired
+    LvlLuck lvlLuck;
+
+    @Autowired
+    LvlStrength lvlStrength;
 
     @GetMapping("/{playerId}")
-    public String getPlayerPage(ModelMap model, @PathVariable Long playerId, HttpSession session) {
+    public String getPlayerPage( ModelMap model, @PathVariable Long playerId, HttpSession session) {
         Player player = playersRepository.findById(playerId).get();
         session.setAttribute("player", player);
         model.addAttribute("player", player);
@@ -110,7 +131,7 @@ public class PlayerController {
         Player player = (Player) httpServletRequest.getSession().getAttribute("player");
         model.addAttribute("player", player);
         model.addAttribute("players", players);
-        return "selectplayerduel";
+        return "selectplayer";
     }
 
     @RequestMapping("/start/players/{playerId}")
@@ -128,7 +149,7 @@ public class PlayerController {
         Player player = (Player) httpServletRequest.getSession().getAttribute("player");
         model.addAttribute("player", player);
         model.addAttribute("players", players);
-        return "selectplayerloot";
+        return "selectplayer";
     }
 
     @RequestMapping("/lootplayer/{playerId}")
@@ -139,5 +160,58 @@ public class PlayerController {
         session.setAttribute("gameMessage", message);
         return "redirect:/start";
     }
+
+    @RequestMapping("/rest")
+    public String rest(ModelMap model, HttpServletRequest httpServletRequest) {
+        Player player = (Player) httpServletRequest.getSession().getAttribute("player");
+        String message = restPlayerService.restPlayer(player);
+        model.addAttribute("gameMessage", message);
+        return "index";
+    }
+
+    @RequestMapping("/levupbygold")
+    public String levUpByGold(ModelMap model, HttpServletRequest httpServletRequest) {
+        Player player = (Player) httpServletRequest.getSession().getAttribute("player");
+        String message = levelUpByGoldService.levelUp(player);
+        model.addAttribute("gameMessage", message);
+        return "index";
+    }
+
+    @RequestMapping("/lvlcharisma")
+    public String lvlCharisma(ModelMap model, HttpServletRequest httpServletRequest) {
+        Player player = (Player) httpServletRequest.getSession().getAttribute("player");
+        String message = lvlCharisma.lvlCharisma(player);
+        model.addAttribute("gameMessage", message);
+        return "index";
+    }
+
+    @RequestMapping("/lvlintelligence")
+    public String lvlIntelligence(ModelMap model, HttpServletRequest httpServletRequest) {
+        Player player = (Player) httpServletRequest.getSession().getAttribute("player");
+        String message = lvlIntelligence.lvlIntelligence(player);
+        model.addAttribute("gameMessage", message);
+        return "index";
+    }
+
+    @RequestMapping("/lvlluck")
+    public String lvlLuck(ModelMap model, HttpServletRequest httpServletRequest) {
+        Player player = (Player) httpServletRequest.getSession().getAttribute("player");
+        String message = lvlLuck.lvlLuck(player);
+        model.addAttribute("gameMessage", message);
+        return "index";
+    }
+
+    @RequestMapping("/lvlstrength")
+    public String lvlStrength(ModelMap model, HttpServletRequest httpServletRequest) {
+        Player player = (Player) httpServletRequest.getSession().getAttribute("player");
+        String message = lvlStrength.lvlStrength(player);
+        model.addAttribute("gameMessage", message);
+        return "index";
+    }
+
+
+
+
+
 
 }

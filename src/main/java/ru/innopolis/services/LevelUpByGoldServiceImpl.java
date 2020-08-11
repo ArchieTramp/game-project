@@ -1,9 +1,11 @@
 package ru.innopolis.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import ru.innopolis.models.Player;
 import ru.innopolis.repositories.PlayersRepository;
 
+@Service
 public class LevelUpByGoldServiceImpl implements LevelUpByGoldService {
 
     @Autowired
@@ -34,7 +36,7 @@ public class LevelUpByGoldServiceImpl implements LevelUpByGoldService {
                 exp = exp + 100;
 
                 player.setGold(gold);
-                player.setLevel(exp);
+                player.setExperience(exp);
 
                 levelUpByExpService.levelUpByExp(player);
 
