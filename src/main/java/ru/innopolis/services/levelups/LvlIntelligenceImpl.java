@@ -31,6 +31,9 @@ public class LvlIntelligenceImpl implements LvlIntelligence {
 
             return "Поумнел, поздравляю";
         }
-        return "Поумнел, поздравляю";
+        else {
+            return "Не хватает, ковбой! Подними уровень и приходи снова!";
+        }
+
     }
 }

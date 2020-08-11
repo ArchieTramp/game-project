@@ -34,6 +34,9 @@ public class LvlCharismaImpl implements LvlCharisma {
             return "Харизма повышена";
 
         }
-        return "Харизма повышена";
+
+        else {
+            return "Не хватает, ковбой! Подними уровень и приходи снова!";
+        }
     }
 }

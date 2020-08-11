@@ -30,8 +30,10 @@ public class LvlLuckImpl implements LvlLuck {
             playersRepository.save(player);
 
             return "Поздравляю, удачливый Вы наш";
-
         }
-        return "Поздравляю, удачливый Вы наш";
+
+        else {
+            return "Не хватает, ковбой! Подними уровень и приходи снова!";
+        }
     }
 }
