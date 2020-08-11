@@ -1,9 +1,11 @@
 package ru.innopolis.services.levelups;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import ru.innopolis.models.Player;
 import ru.innopolis.repositories.PlayersRepository;
 
+@Service
 public class LvlStrengthImpl implements LvlStrength {
 
     @Autowired
@@ -11,7 +13,7 @@ public class LvlStrengthImpl implements LvlStrength {
 
 
     @Override
-    public void lvlStrength(Player player) {
+    public String lvlStrength(Player player) {
 
         int str = player.getStrength();
         int point = player.getPoint();
@@ -26,7 +28,8 @@ public class LvlStrengthImpl implements LvlStrength {
 
             player.setPoint(point);
 
-            playersRepository.save(player);
-        }
+        playersRepository.save(player);
+        return "Подкачался";
+
     }
 }
