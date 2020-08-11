@@ -63,13 +63,13 @@ public class DuelWithPlayerServiceImpl implements DuelWithPlayerService {
 
                         int dmg = 10 + (str * 15);
 
-                        hp1 = hp1 - dmg;
+                        int hp2 = hp1 - dmg;
                         exp = exp + 20 + (lvl1 * 5);
                         mp = mp - 20;
 
                         player.setExperience(exp);
 
-                        player1.setHP(hp1);
+                        player1.setHP(hp2);
                         player.setMP(mp);
 
                         levelUpByExpService.levelUpByExp(player);
@@ -77,7 +77,7 @@ public class DuelWithPlayerServiceImpl implements DuelWithPlayerService {
                         playersRepository.save(player);
                         playersRepository.save(player1);
 
-                        return "Отличный выстрел ковбой! Ты снес ему " + hp1 + " здоровья";
+                        return "Отличный выстрел ковбой! Ты снес ему " + (hp1 - hp2) + " здоровья.";
 
                     } else {
                         mp = mp - 20;
