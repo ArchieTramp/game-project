@@ -13,31 +13,31 @@
             <h2 class="profile-title">Характеристики персонажа</h2>
             <table class="specifications">
                 <tr class="specification-item">
-                    <td>NICKNAME</td>
+                    <td>Никнейм</td>
                     <td>${player.nickName}</td>
                 </tr>
                 <tr class="specification-item">
-                    <td>HP</td>
+                    <td>Здоровье</td>
                     <td>${player.HP}</td>
                 </tr>
                 <tr class="specification-item">
-                    <td>MP</td>
+                    <td>Выносливость</td>
                     <td>${player.MP}</td>
                 </tr>
                 <tr class="specification-item">
-                    <td>Gold</td>
+                    <td>Золото</td>
                     <td>${player.gold}</td>
                 </tr>
                 <tr class="specification-item">
-                    <td>LVL</td>
+                    <td>Уровень</td>
                     <td>${player.level}</td>
                 </tr>
                 <tr class="specification-item">
-                    <td>EXP</td>
+                    <td>Опыт</td>
                     <td>${player.experience}</td>
                 </tr>
                 <tr class="specification-item">
-                    <td>Bandit</td>
+                    <td>Банда</td>
                     <td>${player.bandit}</td>
                 </tr>
 
@@ -45,34 +45,34 @@
             <h3 class="skills">Навыки</h3>
             <table class="specifications">
                 <tr class="specification-item">
-                    <td>INTELLIGENCE</td>
+                    <td>Интеллект</td>
                     <td>${player.intelligence}</td>
                 </tr>
                 <tr class="specification-item">
-                    <td>STRENGTH</td>
+                    <td>Сила</td>
                     <td>${player.strength}</td>
                 </tr>
                 <tr class="specification-item">
-                    <td>CHARISMA</td>
+                    <td>Харизма</td>
                     <td>${player.charisma}</td>
                 </tr>
                 <tr class="specification-item">
-                    <td>LUCK</td>
+                    <td>Удача</td>
                     <td>${player.luck}</td>
                 </tr>
             </table>
             <h3 class="skills">При повышении уровня</h3>
             <form action="${'/lvlcharisma'}" method="post">
-                <input class="action-item" type="submit" value="Повысить уровень коммуникации">
+                <input class="action-item" type="submit" value="+ к харизме">
             </form>
             <form action="${'/lvlintelligence'}" method="post">
-                <input class="action-item" type="submit" value="Подучиться">
+                <input class="action-item" type="submit" value="+ к уму">
             </form>
             <form action="${'/lvlluck'}" method="post">
-                <input class="action-item" type="submit" value="Поднять карму">
+                <input class="action-item" type="submit" value="+ к везению">
             </form>
             <form action="${'/lvlstrength'}" method="post">
-                <input class="action-item" type="submit" value="Подкачаться">
+                <input class="action-item" type="submit" value="+ к силе">
             </form>
         </div>
     </div>
@@ -88,25 +88,25 @@
             <h2 class="action-title">Действия</h2>
             <ul class="action-items">
                 <form action="${'/lootcaravan'}" method="post">
-                    <input class="action-item" type="submit" value="Ограбить караван">
+                    <input class="action-item" type="submit" value="Ограбить банкирский караван">
                 </form>
                 <form action="${'/mercenary'}" method="post">
-                    <input class="action-item" type="submit" value="Нанять бойца">
+                    <input class="action-item" type="submit" value="Нанять бойца в банду">
                 </form>
                 <form action="${'/saloon'}" method="post">
-                    <input class="action-item" type="submit" value="Зайти в Saloon">
+                    <input class="action-item" type="submit" value="Выпить в салуне Дикий Кольт">
                 </form>
                 <form action="${'/lootplayers'}" method="post">
-                    <input class="action-item" type="submit" value="Ограбить игрока">
+                    <input class="action-item" type="submit" value="Ограбить другого ковбоя">
                 </form>
                 <form action="${'/start/players'}" method="post">
-                    <input class="action-item" type="submit" value="Вызвать на дуэль">
+                    <input class="action-item" type="submit" value="Устроить дуэль на площади">
                 </form>
                 <form action="${'/rest'}" method="post">
-                    <input class="action-item" type="submit" value="Отдохнуть">
+                    <input class="action-item" type="submit" value="Передохнуть в корчме У Луи">
                 </form>
                 <form action="${'/levupbygold'}" method="post">
-                    <input class="action-item" type="submit" value="Заплатить деньгами за опыт">
+                    <input class="action-item" type="submit" value="Посетить наставника Джо">
                 </form>
 <#--                <form action="${'/levupbyexp'}" method="post">-->
 <#--                    <input class="action-item" type="submit" value="Повысить навыки">-->

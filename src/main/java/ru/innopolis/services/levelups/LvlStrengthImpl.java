@@ -30,9 +30,11 @@ public class LvlStrengthImpl implements LvlStrength {
 
             playersRepository.save(player);
 
-            return "Подкачался";
-
+            return "Мышца растет, а ты опаснее!";
         }
-        return "Подкачался";
+
+         else {
+            return "Не хватает, ковбой! Подними уровень и приходи снова!";
+        }
     }
 }

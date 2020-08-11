@@ -29,8 +29,11 @@ public class LvlIntelligenceImpl implements LvlIntelligence {
 
             playersRepository.save(player);
 
-            return "Поумнел, поздравляю";
+            return "О, друг, а ты становишься умнее.";
         }
-        return "Поумнел, поздравляю";
+        else {
+            return "Не хватает, ковбой! Подними уровень и приходи снова!";
+        }
+
     }
 }

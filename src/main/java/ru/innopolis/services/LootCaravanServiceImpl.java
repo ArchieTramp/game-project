@@ -67,7 +67,7 @@ public class LootCaravanServiceImpl implements LootCaravanService {
                     playersRepository.save(player);
 
                 }
-                return "Успешное ограбление каравана! Твоя выручка " + newGold;
+                return "Успешное ограбление каравана! Твоя выручка " + newGold + "!";
             } else {
                 return "Ковбой, ты устал, отдохни или выпей в Салуне";
             }

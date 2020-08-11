@@ -72,7 +72,7 @@ public class LootPlayerServiceImpl implements LootPlayerService {
                         levelUpByExpService.levelUpByExp(player);
                         playersRepository.save(player);
                         playersRepository.save(player1);
-                        return "Ты успешно ограбил " + player1.getNickName() + " на " + resultofloot + "золота!";
+                        return "Ты успешно ограбил " + player1.getNickName() + " на " + resultofloot + " золота!";
 
                     } else {
                         mp = mp - 20;
