@@ -29,7 +29,7 @@ public class LvlLuckImpl implements LvlLuck {
 
             playersRepository.save(player);
 
-            return "Поздравляю, удачливый Вы наш";
+            return "А ты везунчик судя по всему, ковбой!";
         }
 
         else {

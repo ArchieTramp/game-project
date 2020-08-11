@@ -31,7 +31,7 @@ public class LvlCharismaImpl implements LvlCharisma {
 
             playersRepository.save(player);
 
-            return "Харизма повышена";
+            return "Ковбой, а ты стал привлекательнее!";
 
         }
 
