@@ -13,15 +13,20 @@ public class LvlStrengthImpl implements LvlStrength {
     @Override
     public void lvlStrength(Player player) {
 
-        playersRepository.findByNickName(player.getNickName());
-
         int str = player.getStrength();
+        int point = player.getPoint();
 
-        str = str + 1;
+        if (point > 0) {
 
-        player.setStrength(str);
+            str = str + 1;
 
-        playersRepository.save(player);
+            player.setStrength(str);
 
+            point = point - 1;
+
+            player.setPoint(point);
+
+            playersRepository.save(player);
+        }
     }
 }

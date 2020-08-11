@@ -12,15 +12,21 @@ public class LvlLuckImpl implements LvlLuck {
     @Override
     public void lvlLuck(Player player) {
 
-        playersRepository.findByNickName(player.getNickName());
-
         int luck = player.getLuck();
+        int point = player.getPoint();
 
-        luck = luck + 1;
+        if (point > 0) {
 
-        player.setLuck(luck);
+            luck = luck + 1;
 
-        playersRepository.save(player);
+            player.setLuck(luck);
+
+            point = point - 1;
+
+            player.setPoint(point);
+
+            playersRepository.save(player);
+        }
 
     }
 }

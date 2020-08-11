@@ -41,6 +41,7 @@ public class CreatPlayerServiceImpl implements CreatPlayerService {
                 .bandit(0)
                 .saloonTime(System.currentTimeMillis() - 3600000)
                 .restTime(System.currentTimeMillis() - 3600000)
+                .point(0)
                 .build();
         playersRepository.save(player);
 

@@ -12,15 +12,21 @@ public class LvlIntelligenceImpl implements LvlIntelligence {
     @Override
     public void lvlIntelligence(Player player) {
 
-        playersRepository.findByNickName(player.getNickName());
-
         int intel = player.getIntelligence();
+        int point = player.getPoint();
 
-        intel = intel + 1;
+        if (point > 0) {
 
-        player.setIntelligence(intel);
+            intel = intel + 1;
 
-        playersRepository.save(player);
+            player.setIntelligence(intel);
+
+            point = point - 1;
+
+            player.setPoint(point);
+
+            playersRepository.save(player);
+        }
 
     }
 }

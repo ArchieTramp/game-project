@@ -41,6 +41,7 @@ public class Player implements Play {
     private Integer bandit; //помощник//
     private Long saloonTime; //время для салуна//
     private Long restTime; //время для отдыха//
+    private Integer point; //повышалки характеристик//
 
     @ManyToOne
     @JoinColumn(name = "user_id")

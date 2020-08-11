@@ -15,6 +15,7 @@ public class LevelUpByExpServiceImpl implements LevelUpByExpService {
         int charisma = player.getCharisma();
         int intel = player.getIntelligence();
         int parametr = (50 * lvl + (50 * (lvl * lvl) / (lvl + lvl)));
+        int point = player.getPoint();
 
 
         if (exp >= parametr) {
@@ -22,11 +23,13 @@ public class LevelUpByExpServiceImpl implements LevelUpByExpService {
             lvl = lvl + 1;
             int hp = 50 + (50 * lvl) + (str * 25);
             int mp = 50 + (25 * lvl) + (charisma * 25);
+            point = point + 1;
 
             player.setHP(hp);
             player.setMP(mp);
             player.setLevel(lvl);
             player.setExperience(exp);
+            player.setPoint(point);
 
         }
 

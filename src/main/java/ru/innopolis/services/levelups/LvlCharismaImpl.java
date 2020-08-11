@@ -13,14 +13,21 @@ public class LvlCharismaImpl implements LvlCharisma {
     @Override
     public void lvlCharisma(Player player) {
 
-    playersRepository.findByNickName(player.getNickName());
 
     int charisma = player.getCharisma();
+    int point = player.getPoint();
 
-    charisma = charisma + 1;
+    if (point > 0) {
 
-    player.setCharisma(charisma);
+        charisma = charisma + 1;
 
-    playersRepository.save(player);
+        point = point - 1;
+
+        player.setCharisma(charisma);
+
+        player.setPoint(point);
+
+        playersRepository.save(player);
+    }
     }
 }

@@ -29,6 +29,7 @@ public class PlayerDto {
     private Integer bandit; //помощник//
     private Long saloonTime; //время//
     private Long restTime;
+    private Integer point;
 
     public static PlayerDto from(Player player) {
         return PlayerDto.builder()
@@ -46,6 +47,7 @@ public class PlayerDto {
                 .bandit(player.getBandit())
                 .saloonTime(player.getSaloonTime())
                 .restTime(player.getRestTime())
+                .point(player.getPoint())
                 .build();
     }
 
