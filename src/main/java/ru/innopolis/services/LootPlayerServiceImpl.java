@@ -56,21 +56,28 @@ public class LootPlayerServiceImpl implements LootPlayerService {
                     int throwDice = gameDice.executeGame();
 
                     if (throwDice >= 5) {
+                        int resultofloot = (int) (gold1 * 0.2);
                         gold = (int) (gold + (gold1 * 0.2));
                         gold1 = (int) (gold1 - (gold1 * 0.2));
                         exp = exp + 10 + (lvl1 * 5);
+                        mp = mp - 20;
+
 
                         player.setGold(gold);
                         player.setExperience(exp);
+                        player.setMP(mp);
 
                         player1.setGold(gold1);
 
                         levelUpByExpService.levelUpByExp(player);
                         playersRepository.save(player);
                         playersRepository.save(player1);
-                        return "Ты успешно ограбил " + player1.getNickName() + " на " + gold + "золота!";
+                        return "Ты успешно ограбил " + player1.getNickName() + " на " + resultofloot + "золота!";
 
                     } else {
+                        mp = mp - 20;
+                        player.setMP(mp);
+                        playersRepository.save(player);
                         return "Перебросить бы, а то маловато выбросил";
                     }
                 }

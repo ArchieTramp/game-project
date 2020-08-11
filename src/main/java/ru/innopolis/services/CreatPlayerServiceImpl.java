@@ -39,8 +39,8 @@ public class CreatPlayerServiceImpl implements CreatPlayerService {
                 .luck(1)
                 .gold(10)
                 .bandit(0)
-                .saloonTime(System.currentTimeMillis())
-                .restTime(System.currentTimeMillis())
+                .saloonTime(System.currentTimeMillis() - 3600000)
+                .restTime(System.currentTimeMillis() - 3600000)
                 .build();
         playersRepository.save(player);
 
