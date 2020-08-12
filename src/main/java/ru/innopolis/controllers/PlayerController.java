@@ -81,7 +81,7 @@ public class PlayerController {
         model.addAttribute("gameMessage", message);
         httpServletRequest.getSession().removeAttribute("gameMessage");
         if (model.getAttribute("gameMessage") == null) {
-            model.addAttribute("gameMessage", "Приветствую тебя, ковбой!!");
+            model.addAttribute("gameMessage", "Приветствую тебя на Тропе Санта-Фе, ковбой!!");
 
         }
         return "index";

@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Дикий запад</title>
+    <title>Тропа Санта-Фе</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -97,7 +97,7 @@
                     <input class="action-item" type="submit" value="Выпить в салуне Дикий Кольт">
                 </form>
                 <form action="${'/start/lootplayers'}" method="post">
-                    <input class="action-item" type="submit" value="Ограбить игрока">
+                    <input class="action-item" type="submit" value="Ограбить другого ковбоя">
                 </form>
                 <form action="${'/start/players'}" method="post">
                     <input class="action-item" type="submit" value="Устроить дуэль на площади">
