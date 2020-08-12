@@ -96,7 +96,7 @@
                 <form action="${'/saloon'}" method="post">
                     <input class="action-item" type="submit" value="Зайти в Saloon">
                 </form>
-                <form action="${'/lootplayers'}" method="post">
+                <form action="${'/start/lootplayers'}" method="post">
                     <input class="action-item" type="submit" value="Ограбить игрока">
                 </form>
                 <form action="${'/start/players'}" method="post">

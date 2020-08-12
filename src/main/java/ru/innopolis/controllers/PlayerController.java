@@ -79,8 +79,10 @@ public class PlayerController {
         model.addAttribute("player", player);
         String message = (String) httpServletRequest.getSession().getAttribute("gameMessage");
         model.addAttribute("gameMessage", message);
+        httpServletRequest.getSession().removeAttribute("gameMessage");
         if (model.getAttribute("gameMessage") == null) {
             model.addAttribute("gameMessage", "Приветствую тебя, ковбой!!");
+
         }
         return "index";
     }
@@ -143,16 +145,16 @@ public class PlayerController {
         return "redirect:/start";
 
     }
-    @RequestMapping("/lootplayers")
+    @RequestMapping("/start/lootplayers")
     public String selectPlayerToLoot(ModelMap model, HttpServletRequest httpServletRequest) {
         List<Player> players = playersRepository.findAll();
         Player player = (Player) httpServletRequest.getSession().getAttribute("player");
         model.addAttribute("player", player);
         model.addAttribute("players", players);
-        return "selectplayer";
+        return "selectplayerloot";
     }
 
-    @RequestMapping("/lootplayer/{playerId}")
+    @RequestMapping("/start/lootplayers/{playerId}")
     public String lootPlayer(ModelMap model, @PathVariable Long playerId, HttpServletRequest httpServletRequest, HttpSession session) {
         Player player2 = playersRepository.findById(playerId).get();
         Player player = (Player) httpServletRequest.getSession().getAttribute("player");
