@@ -5,8 +5,12 @@
     <meta charset="UTF-8">
     <title>Тропа Санта-Фе</title>
     <link rel="stylesheet" href="css/style.css">
+
 </head>
-<body>
+<body onload="connect()">
+
+
+
 <div class="wrapper">
     <div class="profile">
         <div class="profile-window">
@@ -14,7 +18,7 @@
             <table class="specifications">
                 <tr class="specification-item">
                     <td>Никнейм</td>
-                    <td>${player.nickName}</td>
+                    <td id="name">${player.nickName}</td>
                 </tr>
                 <tr class="specification-item">
                     <td>Здоровье</td>
@@ -133,10 +137,10 @@
     <div class="chat">
         <div class="chat-window">
             <div class="messages">
-                <div class="message-items"></div>
+                <div id="messageArea" class="message-items"></div>
                 <form id="message-form" class="message-form">
-                    <input type="text" class="chat-input" name="chat">
-                    <button id="message-send" class="message-send">
+                    <input id="message" type="text" class="chat-input" name="chat">
+                    <button id="message-send" class="message-send" type="submit">
                         <img src="images/message-button.png" width="30%" height="30%">
                     </button>
                 </form>
@@ -150,6 +154,10 @@
         </div>
     </div>-->
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+<script src="js/main.js" type="application/javascript"></script>
 
 </body>
 </html>
