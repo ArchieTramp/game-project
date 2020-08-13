@@ -66,7 +66,7 @@ public class PlayerController {
     LvlStrength lvlStrength;
 
     @GetMapping("/{playerId}")
-    public String getPlayerPage( ModelMap model, @PathVariable Long playerId, HttpSession session) {
+    public String getPlayerPage(ModelMap model, @PathVariable Long playerId, HttpSession session) {
         Player player = playersRepository.findById(playerId).get();
         session.setAttribute("player", player);
         model.addAttribute("player", player);
@@ -75,41 +75,55 @@ public class PlayerController {
 
     @GetMapping("/start")
     public String getStartPage(ModelMap model, HttpServletRequest httpServletRequest) {
-        Player player = (Player) httpServletRequest.getSession().getAttribute("player");
-        model.addAttribute("player", player);
-        String message = (String) httpServletRequest.getSession().getAttribute("gameMessage");
-        model.addAttribute("gameMessage", message);
-        httpServletRequest.getSession().removeAttribute("gameMessage");
-        if (model.getAttribute("gameMessage") == null) {
-            model.addAttribute("gameMessage", "Приветствую тебя, ковбой!!");
+        if (httpServletRequest.getSession().getAttribute("player") != null) {
+            Player player = (Player) httpServletRequest.getSession().getAttribute("player");
+            model.addAttribute("player", player);
+            String message = (String) httpServletRequest.getSession().getAttribute("gameMessage");
+            model.addAttribute("gameMessage", message);
+            httpServletRequest.getSession().removeAttribute("gameMessage");
+            if (model.getAttribute("gameMessage") == null) {
+                model.addAttribute("gameMessage", "Приветствую тебя, ковбой!!");
 
+            }
+        } else {
+            return "redirect:/";
         }
         return "index";
     }
 
     @PostMapping("/creatplayer/delete")
     public String delet(HttpServletRequest httpServletRequest) {
-        Player player = (Player) httpServletRequest.getSession().getAttribute("player");
-        playersRepository.deleteById(player.getId());
+        if (httpServletRequest.getSession().getAttribute("player") != null) {
+            Player player = (Player) httpServletRequest.getSession().getAttribute("player");
+            playersRepository.deleteById(player.getId());
+        }
         return "redirect:/";
     }
 
     @PostMapping("/lootcaravan")
     public String lootCaravanController(ModelMap model, HttpServletRequest httpServletRequest) {
-        Player player = (Player) httpServletRequest.getSession().getAttribute("player");
-        String message = lootCaravanService.lootCaravan(player);
-        model.addAttribute("player", player);
-        model.addAttribute("gameMessage", message);
-        return "index";
+        if (httpServletRequest.getSession().getAttribute("player") != null) {
+            Player player = (Player) httpServletRequest.getSession().getAttribute("player");
+            String message = lootCaravanService.lootCaravan(player);
+            model.addAttribute("player", player);
+            model.addAttribute("gameMessage", message);
+            return "index";
+        } else {
+            return "redirect:/";
+        }
     }
 
     @PostMapping("/mercenary")
     public String barracksController(ModelMap model, HttpServletRequest httpServletRequest) {
-        Player player = (Player) httpServletRequest.getSession().getAttribute("player");
-        String message = barracksService.mercenaryInBarracks(player);
-        model.addAttribute("player", player);
-        model.addAttribute("gameMessage", message);
-        return "index";
+        if (httpServletRequest.getSession().getAttribute("player") != null) {
+            Player player = (Player) httpServletRequest.getSession().getAttribute("player");
+            String message = barracksService.mercenaryInBarracks(player);
+            model.addAttribute("player", player);
+            model.addAttribute("gameMessage", message);
+            return "index";
+        } else {
+            return "redirect:/";
+        }
     }
 
     @PostMapping("/exitGame")
@@ -120,100 +134,142 @@ public class PlayerController {
 
     @PostMapping("/saloon")
     public String saloon(ModelMap model, HttpServletRequest httpServletRequest) {
-        Player player = (Player) httpServletRequest.getSession().getAttribute("player");
-        String message = saloonService.drinkingPoison(player);
-        model.addAttribute("player", player);
-        model.addAttribute("gameMessage", message);
-        return "index";
+        if (httpServletRequest.getSession().getAttribute("player") != null) {
+            Player player = (Player) httpServletRequest.getSession().getAttribute("player");
+            String message = saloonService.drinkingPoison(player);
+            model.addAttribute("player", player);
+            model.addAttribute("gameMessage", message);
+            return "index";
+        } else {
+            return "redirect:/";
+        }
     }
 
     @RequestMapping("/start/players")
     public String selectPlayerToDuel(ModelMap model, HttpServletRequest httpServletRequest) {
-        List<Player> players = playersRepository.findAll();
-        Player player = (Player) httpServletRequest.getSession().getAttribute("player");
-        model.addAttribute("player", player);
-        model.addAttribute("players", players);
-        return "selectplayer";
+        if (httpServletRequest.getSession().getAttribute("player") != null) {
+            List<Player> players = playersRepository.findAll();
+            Player player = (Player) httpServletRequest.getSession().getAttribute("player");
+            model.addAttribute("player", player);
+            model.addAttribute("players", players);
+            return "selectplayer";
+        } else {
+            return "redirect:/";
+        }
     }
 
     @RequestMapping("/start/players/{playerId}")
     public String duel(ModelMap model, @PathVariable Long playerId, HttpServletRequest httpServletRequest, HttpSession session) {
-        Player player2 = playersRepository.findById(playerId).get();
-        Player player = (Player) httpServletRequest.getSession().getAttribute("player");
-        String message = duelWithPlayerService.duelWithPlayer(player, player2);
-        session.setAttribute("gameMessage", message);
+        if (httpServletRequest.getSession().getAttribute("player") != null) {
+            Player player2 = playersRepository.findById(playerId).get();
+            Player player = (Player) httpServletRequest.getSession().getAttribute("player");
+            String message = duelWithPlayerService.duelWithPlayer(player, player2);
+            session.setAttribute("gameMessage", message);
+        } else {
+            return "redirect:/";
+        }
         return "redirect:/start";
 
     }
+
     @RequestMapping("/start/lootplayers")
     public String selectPlayerToLoot(ModelMap model, HttpServletRequest httpServletRequest) {
-        List<Player> players = playersRepository.findAll();
-        Player player = (Player) httpServletRequest.getSession().getAttribute("player");
-        model.addAttribute("player", player);
-        model.addAttribute("players", players);
+        if (httpServletRequest.getSession().getAttribute("player") != null) {
+            List<Player> players = playersRepository.findAll();
+            Player player = (Player) httpServletRequest.getSession().getAttribute("player");
+            model.addAttribute("player", player);
+            model.addAttribute("players", players);
+        } else {
+            return "redirect:/";
+        }
         return "selectplayerloot";
     }
 
     @RequestMapping("/start/lootplayers/{playerId}")
     public String lootPlayer(ModelMap model, @PathVariable Long playerId, HttpServletRequest httpServletRequest, HttpSession session) {
-        Player player2 = playersRepository.findById(playerId).get();
-        Player player = (Player) httpServletRequest.getSession().getAttribute("player");
-        String message = lootPlayerService.lootPlayer(player, player2);
-        session.setAttribute("gameMessage", message);
+        if (httpServletRequest.getSession().getAttribute("player") != null) {
+            Player player2 = playersRepository.findById(playerId).get();
+            Player player = (Player) httpServletRequest.getSession().getAttribute("player");
+            String message = lootPlayerService.lootPlayer(player, player2);
+            session.setAttribute("gameMessage", message);
+        } else {
+            return "redirect:/";
+        }
         return "redirect:/start";
     }
 
     @RequestMapping("/rest")
     public String rest(ModelMap model, HttpServletRequest httpServletRequest) {
-        Player player = (Player) httpServletRequest.getSession().getAttribute("player");
-        String message = restPlayerService.restPlayer(player);
-        model.addAttribute("gameMessage", message);
+        if (httpServletRequest.getSession().getAttribute("player") != null) {
+            Player player = (Player) httpServletRequest.getSession().getAttribute("player");
+            String message = restPlayerService.restPlayer(player);
+            model.addAttribute("gameMessage", message);
+        } else {
+            return "redirect:/";
+        }
         return "index";
     }
 
     @RequestMapping("/levupbygold")
     public String levUpByGold(ModelMap model, HttpServletRequest httpServletRequest) {
-        Player player = (Player) httpServletRequest.getSession().getAttribute("player");
-        String message = levelUpByGoldService.levelUp(player);
-        model.addAttribute("gameMessage", message);
+        if (httpServletRequest.getSession().getAttribute("player") != null) {
+            Player player = (Player) httpServletRequest.getSession().getAttribute("player");
+            String message = levelUpByGoldService.levelUp(player);
+            model.addAttribute("gameMessage", message);
+        } else {
+            return "redirect:/";
+        }
         return "index";
     }
 
     @RequestMapping("/lvlcharisma")
     public String lvlCharisma(ModelMap model, HttpServletRequest httpServletRequest) {
-        Player player = (Player) httpServletRequest.getSession().getAttribute("player");
-        String message = lvlCharisma.lvlCharisma(player);
-        model.addAttribute("gameMessage", message);
+        if (httpServletRequest.getSession().getAttribute("player") != null) {
+
+            Player player = (Player) httpServletRequest.getSession().getAttribute("player");
+            String message = lvlCharisma.lvlCharisma(player);
+            model.addAttribute("gameMessage", message);
+        } else {
+            return "redirect:/";
+        }
         return "index";
     }
 
     @RequestMapping("/lvlintelligence")
     public String lvlIntelligence(ModelMap model, HttpServletRequest httpServletRequest) {
-        Player player = (Player) httpServletRequest.getSession().getAttribute("player");
-        String message = lvlIntelligence.lvlIntelligence(player);
-        model.addAttribute("gameMessage", message);
+        if (httpServletRequest.getSession().getAttribute("player") != null) {
+            Player player = (Player) httpServletRequest.getSession().getAttribute("player");
+            String message = lvlIntelligence.lvlIntelligence(player);
+            model.addAttribute("gameMessage", message);
+        } else {
+            return "redirect:/";
+        }
         return "index";
     }
 
     @RequestMapping("/lvlluck")
     public String lvlLuck(ModelMap model, HttpServletRequest httpServletRequest) {
-        Player player = (Player) httpServletRequest.getSession().getAttribute("player");
-        String message = lvlLuck.lvlLuck(player);
-        model.addAttribute("gameMessage", message);
+        if (httpServletRequest.getSession().getAttribute("player") != null) {
+            Player player = (Player) httpServletRequest.getSession().getAttribute("player");
+            String message = lvlLuck.lvlLuck(player);
+            model.addAttribute("gameMessage", message);
+        } else {
+            return "redirect:/";
+        }
         return "index";
     }
 
     @RequestMapping("/lvlstrength")
     public String lvlStrength(ModelMap model, HttpServletRequest httpServletRequest) {
-        Player player = (Player) httpServletRequest.getSession().getAttribute("player");
-        String message = lvlStrength.lvlStrength(player);
-        model.addAttribute("gameMessage", message);
+        if (httpServletRequest.getSession().getAttribute("player") != null) {
+            Player player = (Player) httpServletRequest.getSession().getAttribute("player");
+            String message = lvlStrength.lvlStrength(player);
+            model.addAttribute("gameMessage", message);
+        } else {
+            return "redirect:/";
+        }
         return "index";
     }
-
-
-
-
 
 
 }
