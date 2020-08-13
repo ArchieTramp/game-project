@@ -33,6 +33,7 @@
             <button type="submit" formmethod="get" formaction="/creatplayer">Создать игрового персонажа</button>
             <button type="submit" formmethod="get" formaction="/users">Для администратора</button>
             <button type="submit" formmethod="get" formaction="/logout">Выход</button>
+            <button type="submit" formmethod="get" formaction="/sendSimpleEmail">Отправить тестовое письмо</button>
         </fieldset>
     </form>
 </div>
