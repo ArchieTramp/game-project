@@ -26,7 +26,7 @@ public class RestPlayerServiceImpl implements RestPlayerService {
 
         playersRepository.save(player);
 
-        return "Не важно что привело тебя в корчму, отдохни, а то на Западе всякое бывает";
+        return "Не важно что привело тебя в корчму, отдохни 1 час, а то на Западе всякое бывает";
     }
 }
 
