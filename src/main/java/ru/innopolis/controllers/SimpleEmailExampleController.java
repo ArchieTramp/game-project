@@ -5,8 +5,7 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import ru.innopolis.security.config.MyConstants;
+import ru.innopolis.services.config.MyConstants;
 
 /**
  * SimpleEmailExampleController

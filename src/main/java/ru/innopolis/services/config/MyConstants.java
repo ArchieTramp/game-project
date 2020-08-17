@@ -1,4 +1,4 @@
-package ru.innopolis.security.config;
+package ru.innopolis.services.config;
 
 /**
  * MyConstants

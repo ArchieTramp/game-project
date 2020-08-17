@@ -1,4 +1,4 @@
-package ru.innopolis.security.config;
+package ru.innopolis.services.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
