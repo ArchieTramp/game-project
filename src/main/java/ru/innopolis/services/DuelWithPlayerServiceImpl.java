@@ -77,14 +77,21 @@ public class DuelWithPlayerServiceImpl implements DuelWithPlayerService {
                         playersRepository.save(player);
                         playersRepository.save(player1);
 
-                        return "Отличный выстрел ковбой! Ты снес ему " + (hp1 - hp2) + " здоровья.";
+                        return "Отличный выстрел ковбой! Ты снес ему " + dmg + " здоровья.";
 
                     } else {
+                        int hp = player.getHP();
+                        int dmg = 10 + (str1 * 15);
+
+                        int hp0 = hp - dmg;
+
                         mp = mp - 20;
+
                         player.setMP(mp);
+                        player.setHP(hp0);
                         playersRepository.save(player);
 
-                        return "Неудача тоже опыт, ковбой! Пробуй еще!";
+                        return "Оу, в тебя попали и снесли " + dmg + " здоровья";
                     }
                 }
             } else {
