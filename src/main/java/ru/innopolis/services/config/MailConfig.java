@@ -4,6 +4,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
+import ru.innopolis.NotificationClient;
+
 import java.util.Properties;
 
 /**
@@ -16,6 +18,10 @@ import java.util.Properties;
 public class MailConfig {
     @Bean
     public JavaMailSender getJavaMailSender() {
+
+        NotificationClient notificationClient = null;
+        if (notificationClient != null) notificationClient.notifyUser(1L, "AAA");
+
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
         mailSender.setHost("smtp.gmail.com");
         mailSender.setPort(587);
