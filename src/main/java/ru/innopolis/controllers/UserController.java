@@ -58,7 +58,6 @@ public class UserController {
             model.addAttribute("user", user);
             model.addAttribute("message1", "Админа нельзя редактировать");
             return "user";
-//            return "/users/{userId}";
         }
         return "redirect:/users";
     }

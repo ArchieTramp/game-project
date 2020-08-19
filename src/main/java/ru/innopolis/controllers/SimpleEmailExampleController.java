@@ -2,10 +2,9 @@ package ru.innopolis.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import ru.innopolis.services.config.MyConstants;
+import ru.innopolis.NotificationClient;
 
 /**
  * SimpleEmailExampleController
@@ -16,22 +15,22 @@ import ru.innopolis.services.config.MyConstants;
 @Controller
 public class SimpleEmailExampleController {
 
-    @Autowired
-    public JavaMailSender emailSender;
+//    @Autowired
+//    public JavaMailSender emailSender;
 
-//    @ResponseBody
+    @Autowired
+    NotificationClient service;
+
     @RequestMapping("/sendSimpleEmail")
     public String sendSimpleEmail() {
 
         SimpleMailMessage message = new SimpleMailMessage();
-
-        message.setTo(MyConstants.FRIEND_EMAIL);
+        message.setTo("109a@mail.ru");
         message.setSubject("Тестовое письмо");
         message.setText("Привет из игры");
-        this.emailSender.send(message);
+        service.notifyUser(message);
 
         return "redirect:/";
-//        return "Письмо отправлено";
     }
 
 }
