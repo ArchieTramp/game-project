@@ -15,9 +15,6 @@ import ru.innopolis.NotificationClient;
 @Controller
 public class SimpleEmailExampleController {
 
-//    @Autowired
-//    public JavaMailSender emailSender;
-
     @Autowired
     NotificationClient service;
 

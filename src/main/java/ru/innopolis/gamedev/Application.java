@@ -27,9 +27,6 @@ import ru.innopolis.NotificationClient;
 
 public class Application  {
 
-
-
-
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
@@ -43,14 +40,9 @@ public class Application  {
         return rmiProxyFactoryBean;
     }
 
-
     public static void main(String[] args) {
-//        SpringApplication.run(Application.class, args);
-        ConfigurableApplicationContext context = SpringApplication.run(Application.class, args);
-        NotificationClient service = context.getBean(NotificationClient.class);
-//        Boolean result = service.notifyUser(1L,"fdf");
-//        System.out.println("++++++++++++++++++++++++++++++++");
-//        System.out.println(result);
+        SpringApplication.run(Application.class, args);
+
 
     }
 
