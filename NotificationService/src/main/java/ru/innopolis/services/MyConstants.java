@@ -1,4 +1,4 @@
-package ru.innopolis.security.config;
+package ru.innopolis.services;
 
 /**
  * MyConstants
@@ -8,8 +8,5 @@ package ru.innopolis.security.config;
 public class MyConstants {
 
     public static final String MY_EMAIL = "gpinnop@gmail.com";
-
     public static final String MY_PASSWORD = "120a130b!";
-
-    public static final String FRIEND_EMAIL = "109a@mail.ru";
 }

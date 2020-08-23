@@ -16,9 +16,6 @@ public class UsersController {
     @Autowired
     private UsersRepository usersRepository;
 
-    @Autowired
-    private BannedPlayerService bannedPlayerService;
-
     @GetMapping(value = "/users")
     public String getUsersPage(ModelMap model, Authentication authentication) {
 
